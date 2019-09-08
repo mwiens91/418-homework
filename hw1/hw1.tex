@@ -13,6 +13,9 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 
+% Shortcut for curly L
+\DeclareMathOperator{\Lagr}{\mathcal{L}}
+
 % Links
 \usepackage{hyperref}
 
@@ -35,15 +38,53 @@
 
 (a) $u \cdot \nabla_{x} u + u = x$
 
-\quad \textit{solnhere}
+We can rewrite this equation as $\Lagr(u) = x$ where
+$\Lagr(u) = u \cdot \nabla_{x} u + u$. Since
+%
+\begin{align*}
+    \Lagr(c u)
+        &= (c u) \cdot \nabla_x (c u) + (c u) \\
+        &= c^2 \cdot u \nabla_x u + c u \\
+        &= c \left(c \cdot u \nabla_x u + u \right) \\
+        &\neq c \left(u \nabla_x u + u \right) \\
+        &= c \Lagr(u),
+\end{align*}
+%
+that is, $\Lagr(c u) \neq c \Lagr(u)$, we see that this equation is nonlinear.
 
 (b) $(1 + t) \partial_{t} u = \partial_{x x} u$
 
-\quad \textit{solnhere}
+We can rewrite this equation as $\Lagr(u) = 0$ where
+$\Lagr(u) = (1 + t) \partial_{t} u - \partial_{x x} u$. Since
+%
+\begin{align*}
+    \Lagr(u_1 + c u_2)
+        &= (1 + t) \partial_{t} (u_1 + c u_2) - \partial_{x x} (u_1 + c u_2) \\
+        &= \left( (1 + t) \partial_{t} u_1 - \partial_{x x} u_1 \right)
+           + \left( (1 + t) \partial_{t} (c u_2) -  \partial_{x x} (c u_2) \right) \\
+        &= \left( (1 + t) \partial_{t} u_1 - \partial_{x x} u_1 \right)
+           + c \left( (1 + t) \partial_{t} u_2 -  \partial_{x x} u_2 \right) \\
+        &= \Lagr(u_1) + c \Lagr(u_2),
+\end{align*}
+%
+that is, $\Lagr(u_1 + c u_2) = \Lagr(u_1) + c \Lagr(u_2)$, we see that
+this equation is linear.
 
 (c) $\left| \nabla_{x} u \right| = 1$
 
-\quad \textit{solnhere}
+We can rewrite this equation as $\Lagr(u) = 1$ where
+$\Lagr(u) = \left| \nabla_{x} u \right|$. Using the linearity of
+$\nabla$, we have that
+%
+\begin{align*}
+    \Lagr(u_1 + u_2)
+        &= \left| \nabla_{x} (u_1 + u_2) \right| \\
+        &= \left| \nabla_{x} u_1 + \nabla_{x} u_2 \right| \\
+        &\neq \left| \nabla_{x} u_1 \right| + \left| \nabla_{x} u_2 \right| \\
+        &= \Lagr(u_1) + \Lagr(u_2)
+\end{align*}
+%
+that is, $\Lagr(u_1 + u_2) \neq \Lagr(u_1) + \Lagr(u_2)$; hence, this equation is nonlinear.
 
 2. Consider the equations
 %
