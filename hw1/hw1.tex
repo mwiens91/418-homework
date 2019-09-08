@@ -1,0 +1,105 @@
+% Set up the document
+\documentclass{article}
+
+% Page size
+\usepackage[
+    letterpaper,]{geometry}
+
+% Lines between paragraphs
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+
+% Math
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Links
+\usepackage{hyperref}
+
+% Page numbers at top right
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\renewcommand\headrulewidth{0pt}
+
+\begin{document}
+
+\textbf{MATH 418 Homework 1} \\
+\textbf{Matt Wiens \#301294492} \\
+\textbf{2019-09-13}
+
+\textbf{Part 1: Material from MATH 418/718}
+
+1. Determine whether the following equations are linear or nonlinear:
+
+(a) $u \cdot \nabla_{x} u + u = x$
+
+\quad \textit{solnhere}
+
+(b) $(1 + t) \partial_{t} u = \partial_{x x} u$
+
+\quad \textit{solnhere}
+
+(c) $\left| \nabla_{x} u \right| = 1$
+
+\quad \textit{solnhere}
+
+2. Consider the equations
+%
+\begin{equation}
+    \begin{aligned}
+        &u_{t} + x u_{x} = u \\
+        &u(1, x) = x^2 + 3 x
+    \end{aligned}
+    \label{eq:p1q2}
+\end{equation}
+%
+(a) Sketch the projected characteristics in the $(t, x)$-plane and label
+where the points corresponding to the initial condition are located.
+
+\quad \textit{solnhere}
+
+(b) Solve for $u$ using the method of characteristics.
+
+\quad \textit{solnhere}
+
+(c) Verify that the solution you find indeed satisfies \eqref{eq:p1q2}.
+
+\quad \textit{solnhere}
+
+\textbf{Part 2: Prerequisite Check}
+
+3. (a) Let $B(\mathbf{0},1)$ be the unit ball in $\mathbb{R}^{3}$ with
+   radius $1$. Explicitly compute
+%
+\begin{align}
+    \iiint_{B(\mathbf{0},1)} &\frac{1}{|\mathbf{x}|} d \mathbf{x}
+    \label{eq:p2q3a1} \\
+    \iint_{\partial B(\mathbf{0},1)} &\frac{1}{|\mathbf{x}|} d S
+    \label{eq:p2q3a2}
+\end{align}
+
+\quad \textit{solnhere}
+
+For (b) and (c), let $B(\mathbf{0},1)$ be the unit ball in
+$\mathbb{R}^{N}$ with radius $1$ and $B^{c}$ its complement, i.e.,
+$$B^{c}(\mathbf{0}, 1) = \left\{\mathbf{x} \in \mathbb{R}^{N}: |\mathbf{x}| \geq 1 \right\}$$
+
+(b) For what values of $p > 0$ is the following integral finite?
+\begin{equation}
+    \int \ldots \int_{B(\mathbf{0}, 1)} \frac{1}{|\mathbf{x}|^{p}} d \mathbf{x}
+    \label{eq:p2q3b}
+\end{equation}
+
+\quad \textit{solnhere}
+
+(c) For what values of $p > 0$ is the following integral finite?
+\begin{equation}
+    \int \ldots \int_{B^{c}(\mathbf{0}, 1)} \frac{1}{|\mathbf{x}|^{p}} d \mathbf{x}
+    \label{eq:p2q3c}
+\end{equation}
+
+\quad \textit{solnhere}
+
+\end{document}
