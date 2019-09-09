@@ -171,9 +171,44 @@ divergence, and Laplacian:
 
 (a) $\nabla(f g) = f \nabla g + g \nabla f,$ for any
 $f, g \in C^{1}\left(\mathbb{R}^{3}\right)$
-
-\quad \textit{solnhere}
-
+%
+\begin{align*}
+    \nabla (f g)
+        &= \left\langle
+                \frac{\partial (f g)}{\partial x},
+                \frac{\partial (f g)}{\partial y},
+                \frac{\partial (f g)}{\partial z}
+           \right\rangle \\
+        &= \left\langle
+                f \frac{\partial g}{\partial x} + g \frac{\partial f}{\partial x},
+                f \frac{\partial g}{\partial y} + g \frac{\partial f}{\partial y},
+                f \frac{\partial g}{\partial z} + g \frac{\partial f}{\partial z}
+           \right\rangle \\
+        &= \left\langle
+                f \frac{\partial g}{\partial x},
+                f \frac{\partial g}{\partial y},
+                f \frac{\partial g}{\partial z}
+           \right\rangle
+           +
+           \left\langle
+                g \frac{\partial f}{\partial x},
+                g \frac{\partial f}{\partial y},
+                g \frac{\partial f}{\partial z}
+           \right\rangle \\
+        &= f \left\langle
+                \frac{\partial g}{\partial x},
+                \frac{\partial g}{\partial y},
+                \frac{\partial g}{\partial z}
+           \right\rangle
+           +
+           g \left\langle
+                \frac{\partial f}{\partial x},
+                \frac{\partial f}{\partial y},
+                \frac{\partial f}{\partial z}
+           \right\rangle \\
+        &= f \nabla g + g \nabla f
+\end{align*}
+%
 (b) $\operatorname{div}(f (\mathbf{u})) = \mathbf{f} \operatorname{div} \mathbf{u} + \mathbf{u} \cdot \nabla \mathbf{f}$
 for any function $f \in C^{1}\left(\mathbb{R}^{3}\right)$ and vector field
 $u \in C^{1}\left(\mathbb{R}^{3}, \mathbb{R}^{3}\right)$
