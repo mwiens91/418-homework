@@ -222,10 +222,34 @@ $f, g \in C^{1}\left(\mathbb{R}^{3}\right)$
 \end{align*}
 
 \vspace{5mm}
-(b) $\operatorname{div}(f (\mathbf{u})) = \mathbf{f} \operatorname{div} \mathbf{u} + \mathbf{u} \cdot \nabla \mathbf{f}$
+(b) $\operatorname{div}(f \mathbf{u}) = \mathbf{f} \operatorname{div} \mathbf{u} + \mathbf{u} \cdot \nabla \mathbf{f}$
 for any function $f \in C^{1}\left(\mathbb{R}^{3}\right)$ and vector field
 $u \in C^{1}\left(\mathbb{R}^{3}, \mathbb{R}^{3}\right)$
 
-\quad \textbf{!!!!!!NOT FINISHED!!!!!}
+Note: I find the inconsistent(?) use of boldface in the question
+confusing, so I'm not going to bold anything in my solution.
+
+\begin{align*}
+    \operatorname{div}(f u)
+        &= \frac{\partial (f u_1)}{\partial x}
+           + \frac{\partial (f u_2)}{\partial y}
+           + \frac{\partial (f u_3)}{\partial z}
+           \\
+        &= f \frac{\partial u_1}{\partial x} + u_1 \frac{\partial f}{\partial x}
+           + f \frac{\partial u_2}{\partial y} + u_2 \frac{\partial f}{\partial y}
+           + f \frac{\partial u_3}{\partial z} + u_3 \frac{\partial f}{\partial z}
+           \\
+        &= f \left(
+            \frac{\partial u_1}{\partial x}
+            + \frac{\partial u_2}{\partial y}
+            + \frac{\partial u_3}{\partial z}
+           \right) +
+           u \cdot \left\langle
+                \frac{\partial f}{\partial x},
+                \frac{\partial f}{\partial y},
+                \frac{\partial f}{\partial z}
+           \right\rangle \\
+        &= f \operatorname{div} u + u \cdot \nabla f
+\end{align*}
 
 \end{document}
