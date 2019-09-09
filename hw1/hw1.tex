@@ -150,6 +150,7 @@ $\mathbb{R}^{N}$ with radius $1$ and $B^{c}$ its complement, i.e.,
 $$B^{c}(\mathbf{0}, 1) = \left\{\mathbf{x} \in \mathbb{R}^{N}: |\mathbf{x}| \geq 1 \right\}$$
 
 (b) For what values of $p > 0$ is the following integral finite?
+%
 \begin{equation}
     \int \ldots \int_{B(\mathbf{0}, 1)} \frac{1}{|\mathbf{x}|^{p}} d \mathbf{x}
     \label{eq:p2q3b}
@@ -161,6 +162,7 @@ $$B^{c}(\mathbf{0}, 1) = \left\{\mathbf{x} \in \mathbb{R}^{N}: |\mathbf{x}| \geq
 
 \vspace{5mm}
 (c) For what values of $p > 0$ is the following integral finite?
+%
 \begin{equation}
     \int \ldots \int_{B^{c}(\mathbf{0}, 1)} \frac{1}{|\mathbf{x}|^{p}} d \mathbf{x}
     \label{eq:p2q3c}
@@ -182,6 +184,33 @@ Use this to find $$\nabla(\sin |\mathbf{x}|)$$
 
 First we will show that
 $f(\mathbf{x}) = |\mathbf{x}| \Rightarrow \nabla f = \frac{\mathbf{x}}{|\mathbf{x}|}$.
+For a particular index $x_i$ we have
+%
+\begin{align*}
+    \frac{\partial f}{\partial x_i}
+        &= \frac{\partial |\mathbf{x}|}{\partial x_i} \\
+        &= \frac{\partial (\sqrt{\sum_{k=1}^n x_k^2})}{\partial x_i} \\
+        &= \frac{1}{2 |\mathbf{x}|} \frac{\partial (\sum_{k=1}^n x_k^2)}{\partial x_i} \\
+        &= \frac{1}{2 |\mathbf{x}|} \frac{\partial (x_i^2)}{\partial x_i} \\
+        &= \frac{x_i}{|\mathbf{x}|}
+\end{align*}
+%
+Hence $\nabla f = \frac{\mathbf{x}}{|\mathbf{x}|}$. Now suppose for some
+function $g$, $f(\mathbf{x}) = g(|\mathbf{x}|)$. Then
+%
+\begin{align*}
+    \frac{\partial f}{\partial x_i}
+        &= \frac{\partial g(|\mathbf{x}|)}{\partial x_i} \\
+        &= g' \frac{\partial |\mathbf{x}|}{\partial x_i} \\
+        &= g' \frac{x_i}{|\mathbf{x}|}
+\end{align*}
+%
+Thus $\nabla f = g' \frac{\mathbf{x}}{|\mathbf{x}|}$. Using this to
+compute $\nabla(\sin |\mathbf{x}|)$, we have
+%
+\begin{equation*}
+    \nabla(\sin |\mathbf{x}|) = \cos(x) \frac{\mathbf{x}}{|\mathbf{x}|}
+\end{equation*}
 
 \vspace{5mm}
 7. Let $\mathbf{x} \in \mathbb{R}^{3}$ and
@@ -257,7 +286,7 @@ $u \in C^{1}\left(\mathbb{R}^{3}, \mathbb{R}^{3}\right)$
 
 Note: I find the inconsistent(?) use of boldface in the question
 confusing, so I'm not going to bold anything in my solution.
-
+%
 \begin{align*}
     \operatorname{div}(f u)
         &= \frac{\partial (f u_1)}{\partial x}
