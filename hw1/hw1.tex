@@ -12,6 +12,7 @@
 % Math
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{mathtools}
 
 % Shortcut for curly L
 \DeclareMathOperator{\Lagr}{\mathcal{L}}
@@ -25,6 +26,11 @@
 \fancyhf{}
 \fancyhead[R]{\thepage}
 \renewcommand\headrulewidth{0pt}
+
+% Graphics
+\usepackage{float}
+\usepackage{graphicx}
+\graphicspath{ {./plots/img/} }
 
 \begin{document}
 
@@ -111,7 +117,30 @@ where the points corresponding to the initial condition are located.
 
 \textbf{Solution}
 
-\quad \textbf{!!!!!!NOT FINISHED!!!!!}
+We can write a system of equations for the projected characteristics as
+follows:
+%
+\begin{equation*}
+    \begin{dcases}
+        \frac{d t}{d s} = 1 \\
+        \frac{d x}{d s} = x \\
+        \left( t(0), x(0) \right) = \left( 1, x_0 \right)
+    \end{dcases}
+\end{equation*}
+%
+Solving for this system we obtain
+%
+\begin{align*}
+    t(s) &= s + 1 \\
+    x(s) &= x_0 \exp(s)
+\end{align*}
+%
+A few of the projected characteristics are plotted below:
+%
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=12cm]{p1q2}
+\end{figure}
 
 \vspace{5mm}
 (b) Solve for $u$ using the method of characteristics.
