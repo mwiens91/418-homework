@@ -147,14 +147,58 @@ A few of the projected characteristics are plotted below:
 
 \textbf{Solution}
 
-\quad \textbf{!!!!!!NOT FINISHED!!!!!}
+Here we have
+%
+\begin{equation*}
+    \frac{d U}{d s} = U
+\end{equation*}
+%
+which has solution
+%
+\begin{equation*}
+    U(s) = (x_0^2 + 3 x_0) \exp(s)
+\end{equation*}
+%
+Now, inverting our equations for $t$ and $s$, we obtain
+%
+\begin{align*}
+    s(t, x) &= t - 1 \\
+    x_0(t, x) &= x \exp(1 - t)
+\end{align*}
+%
+and thus we obtain $u(t, x)$ as
+%
+\begin{align*}
+    u(t, x) &= ((x \exp(1 - t))^2 + 3 x \exp(1 - t)) \exp(t - 1) \\
+            &= x^2 \exp(1 - t) + 3 x
+\end{align*}
+%
 
 \vspace{5mm}
 (c) Verify that the solution you find indeed satisfies \eqref{eq:p1q2}.
 
 \textbf{Solution}
 
-\quad \textbf{!!!!!!NOT FINISHED!!!!!}
+We calculate (using Maple)
+%
+\begin{align*}
+    u_t &= -x^2 \exp(1 - t) \\
+    u_x &= 2 x \exp(1 - t) + 3
+\end{align*}
+%
+and thus
+%
+\begin{align*}
+    &u_t + x u_x \\
+    &= \left[
+        -x^2 \exp(1 - t)
+       \right]
+       + x \left[
+        2 x \exp(1 - t) + 3
+       \right] \\
+   &= x^2 \exp(1 - t) + 3 x \\
+   &= u
+\end{align*}
 
 \vspace{5mm}
 \textbf{Part 2: Prerequisite Check}
