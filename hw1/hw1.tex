@@ -13,6 +13,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{mathtools}
+\usepackage{physics}
 
 % Shortcut for curly L
 \DeclareMathOperator{\Lagr}{\mathcal{L}}
@@ -206,16 +207,30 @@ and thus
 3. (a) Let $B(\mathbf{0},1)$ be the unit ball in $\mathbb{R}^{3}$ with
    radius $1$. Explicitly compute
 %
-\begin{align}
-    \iiint_{B(\mathbf{0},1)} &\frac{1}{|\mathbf{x}|} d \mathbf{x}
-    \label{eq:p2q3a1} \\
+\begin{align*}
+    \iiint_{B(\mathbf{0},1)} &\frac{1}{|\mathbf{x}|} d \mathbf{x} \\
     \iint_{\partial B(\mathbf{0},1)} &\frac{1}{|\mathbf{x}|} d S
-    \label{eq:p2q3a2}
-\end{align}
+\end{align*}
 
 \textbf{Solution}
 
-\quad \textbf{!!!!!!NOT FINISHED!!!!!}
+Here we make use of the radial symmetry of both integrals:
+%
+\begin{align*}
+    \iiint_{B(\mathbf{0},1)} \frac{1}{|\mathbf{x}|} d \mathbf{x}
+        &= 4 \pi \int_0^1 r^2 \frac{1}{r} dr \\
+        &= 4 \pi \int_0^1 r dr \\
+        &= 4 \pi \frac{1}{2} \\
+        &= 2 \pi \\
+    \\
+    \iint_{\partial B(\mathbf{0},1)} \frac{1}{|\mathbf{x}|} d S
+        &= \frac{d}{dr} \left(
+            \iiint_{B(\mathbf{0},1)} \frac{1}{|\mathbf{x}|} d \mathbf{x}
+           \right) \\
+        &= \frac{d}{dr} \left(4 \pi \int_0^1 r dr \right) \\
+        &= 4 \pi \frac{d}{dr} \left(\int_0^1 r dr \right) \\
+        &= 4 \pi
+\end{align*}
 
 \vspace{5mm}
 For (b) and (c), let $B(\mathbf{0},1)$ be the unit ball in
@@ -224,26 +239,44 @@ $$B^{c}(\mathbf{0}, 1) = \left\{\mathbf{x} \in \mathbb{R}^{N}: |\mathbf{x}| \geq
 
 (b) For what values of $p > 0$ is the following integral finite?
 %
-\begin{equation}
+\begin{equation*}
     \int \ldots \int_{B(\mathbf{0}, 1)} \frac{1}{|\mathbf{x}|^{p}} d \mathbf{x}
-    \label{eq:p2q3b}
-\end{equation}
+\end{equation*}
 
 \textbf{Solution}
 
-\quad \textbf{!!!!!!NOT FINISHED!!!!!}
+Let $A$ denote the surface area of the unit sphere in $\mathbb{R}^{N}$.
+Then, again exploiting radial symmetry, we have
+%
+\begin{align*}
+    \int \ldots \int_{B(\mathbf{0}, 1)} \frac{1}{|\mathbf{x}|^{p}} d \mathbf{x}
+        &= A \int_0^1 r^{N - 1} \frac{1}{r^p} dr \\
+        &= A \int_0^1 r^{N - 1 - p} dr \\
+        &= A \eval{\qty({\frac{r^{N - p}}{N - p}})}_0^1 \\
+\end{align*}
+%
+which is finite provided $p < N$.
 
 \vspace{5mm}
 (c) For what values of $p > 0$ is the following integral finite?
 %
-\begin{equation}
+\begin{equation*}
     \int \ldots \int_{B^{c}(\mathbf{0}, 1)} \frac{1}{|\mathbf{x}|^{p}} d \mathbf{x}
-    \label{eq:p2q3c}
-\end{equation}
+\end{equation*}
 
 \textbf{Solution}
 
-\quad \textbf{!!!!!!NOT FINISHED!!!!!}
+Again, let $A$ denote the surface area of the unit sphere in
+$\mathbb{R}^{N}$. Then we have
+%
+\begin{align*}
+    \int \ldots \int_{B^{c}(\mathbf{0}, 1)} \frac{1}{|\mathbf{x}|^{p}} d \mathbf{x}
+        &= A \int_1^\infty r^{N - 1} \frac{1}{r^p} dr \\
+        &= A \int_1^\infty r^{N - 1 - p} dr \\
+        &= A \eval{\qty({\frac{r^{N - p}}{N - p}})}_1^\infty \\
+\end{align*}
+%
+which is finite provided $p > N$.
 
 \vspace{5mm}
 6. Let $f(\mathbf{x}) = |\mathbf{x}|$, where $\mathbf{x} \in \mathbb{R}^{N}$.
