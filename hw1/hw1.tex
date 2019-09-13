@@ -327,7 +327,28 @@ B(\mathbf{0}, a)$ with the outer normal to $B(\mathbf{0}, a)$.
 
 \textbf{Solution}
 
-\quad \textbf{!!!!!!NOT FINISHED!!!!!}
+First, note that $\mathbf{n} = \mathbf{x}$ for this problem. Thus we
+have
+%
+\begin{align*}
+    \nabla u \cdot \mathbf{n}
+        &= \nabla \left(\frac{1}{|\mathbf{x}|^{p}} \right) \cdot \mathbf{x} \\
+        &= \left(\frac{-p}{|\mathbf{x}|^{p + 2}} \right) \mathbf{x} \cdot \mathbf{x} \\
+        &= \frac{-p}{|\mathbf{x}|^{p}} \\
+        &= -p u(\mathbf{x})
+\end{align*}
+%
+where we noted that
+%
+$\nabla \left(\frac{1}{|\mathbf{x}|^{p}} \right) = \left(\frac{-p}{|\mathbf{x}|^{p + 2}} \right) \mathbf{x}$,
+since, without loss of generality considering the component $x$, we have
+%
+\begin{align*}
+    \frac{\partial}{\partial x} \left(\frac{1}{|\mathbf{x}|^{p}} \right)
+        &= \frac{-p}{|\mathbf{x}|^{p + 1}} \frac{\partial}{\partial x} |\mathbf{x}| \\
+        &= \frac{-p}{|\mathbf{x}|^{p + 1}} \frac{x}{|\mathbf{x}|} \\
+        &= \frac{-p}{|\mathbf{x}|^{p + 2}} x
+\end{align*}
 
 \vspace{5mm}
 8. Verify the Divergence Theorem in $\mathbb{R}^{3}$ for
