@@ -335,7 +335,36 @@ $\Omega = B(\mathbf{0}, a)$ and vector field $\mathbf{x}$ .
 
 \textbf{Solution}
 
-\quad \textbf{!!!!!!NOT FINISHED!!!!!}
+We need to show that
+%
+\begin{equation}
+    \iiint_{B(\mathbf{0}, 1)} \operatorname{div} \mathbf{x} \,dx \,dy \,dz = \iint_{\partial B(\mathbf{0}, 1)} \mathbf{x} \cdot \mathbf{x} \,dS
+    \label{eq:p2q8}
+\end{equation}
+%
+(where we identified $\mathbf{n} = \mathbf{x}$). Starting from the left
+hand side of \eqref{eq:p2q8}, we have
+%
+\begin{align*}
+    \iiint_{B(\mathbf{0}, 1)} \operatorname{div} \mathbf{x} \,dx \,dy \,dz
+        &= \iiint_{B(\mathbf{0}, 1)} (1 + 1 + 1) \,dx \,dy \,dz \\
+        &= 3 \iiint_{B(\mathbf{0}, 1)} \,dx \,dy \,dz \\
+        &= 3 \left( \frac{4}{3} \pi \right)\\
+        &= 4 \pi
+\end{align*}
+%
+and on the right hand side of \eqref{eq:p2q8} we have
+%
+\begin{align*}
+    \iint_{\partial B(\mathbf{0}, 1)} \mathbf{x} \cdot \mathbf{x} \,dS
+        &= \iint_{\partial B(\mathbf{0}, 1)} (x^2 + y^2 + z^2) \,dS \\
+        &= \iint_{\partial B(\mathbf{0}, 1)} \,dS \\
+        &= 4 \pi
+\end{align*}
+%
+where we used that on the surface of the unit sphere $x^2 + y^2 + z^2 =
+1$. We see that equation \eqref{eq:p2q8} holds after evaluating both its
+left and right hand sides.
 
 \vspace{5mm}
 13. Prove the following ``product rule'' identities for the gradient,
