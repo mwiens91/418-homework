@@ -70,7 +70,103 @@ soln here
 %
 \textbf{Solution}
 
-soln here
+Using the Method of Characteristics we set up the following system of
+equations:
+%
+\begin{equation*}
+    \begin{dcases}
+        \frac{d x}{d s} = y + U \\
+        \frac{d y}{d s} = y \\
+        \frac{d U}{d s} = x - y \\
+        \left( x(0), y(0), U(0)\right) = \left( x_0, 1, 1 + x_0 \right)
+    \end{dcases}
+\end{equation*}
+%
+We first solve for $y(s)$:
+%
+\begin{equation*}
+    y(s) = \exp(s)
+\end{equation*}
+%
+Which leaves us with
+%
+\begin{equation*}
+    \begin{dcases}
+        \frac{d x}{d s} = e^s + U \\
+        \frac{d U}{d s} = x - e^s \\
+        \left( x(0), U(0)\right) = \left( x_0, 1 + x_0 \right)
+    \end{dcases}
+\end{equation*}
+%
+Taking a derivative in the equation for $x^{\prime}(s)$ we have, for
+some constants $A, B \in \mathbb{R}$,
+%
+\begin{align*}
+    &x^{\prime \prime} = e^s + U^{\prime} \\
+    &\iff x^{\prime \prime} = e^s + \left(x - e^s\right) \\
+    &\iff x^{\prime \prime} = x \\
+    &\iff x(s) = A \exp(s) + B \exp(-s)
+\end{align*}
+%
+Now we solve for $U(s)$ as follows:
+%
+\begin{align*}
+    &u^{\prime}(s) = A \exp(s) + B \exp(-s) - \exp(s) \\
+    &\Rightarrow u(s) = A \exp(s) - B \exp(-s) - \exp(s)
+\end{align*}
+%
+To solve for $A$ and $B$ we use our initial conditions, which give us
+the system
+%
+\begin{equation*}
+    \begin{dcases}
+        A + B = x_0 \\
+        A - B - 1 = 1 + x_0
+    \end{dcases}
+\end{equation*}
+%
+which has solutions
+%
+\begin{align*}
+    A &= 1 + x_0 \\
+    B &= -1
+\end{align*}
+%
+To summarize what we have so far, we have
+%
+\begin{equation*}
+    \begin{dcases}
+        x(s) = (1 + x_0) \exp(s) - \exp(-s) \\
+        y(s) = \exp(s) \\
+        U(S) = (1 + x_0) \exp(s) + \exp(-s) - \exp(s)
+    \end{dcases}
+\end{equation*}
+%
+We can solve easily for $s$ in terms of $y$:
+%
+\begin{equation*}
+    s = \log y
+\end{equation*}
+%
+Substituting this into the equation for $x$, we have
+%
+\begin{equation*}
+    x = (1 + x_0) y - y^{-1}
+\end{equation*}
+%
+which, when solving for $x_0$, gives
+%
+\begin{equation*}
+    x_0 = x y^{-1} + y^{-2} - 1
+\end{equation*}
+%
+Now we can solve for $u(x, y)$ as follows:
+%
+\begin{align*}
+    u(x, y) &= U(s(x, y), x_0(x, y)) \\
+            &= \left[1 + \left(x y^{-1} + y^{-2} - 1\right)\right] y - y + y^{-1} \\
+            &= \frac{x y - y^2 + 2}{y}
+\end{align*}
 
 \vspace{5mm}
 
