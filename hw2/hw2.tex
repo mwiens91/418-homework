@@ -253,7 +253,47 @@ Show that $f(x) = g(x)$ for all $x \in [-10, 10]$.
 
 \textbf{Solution}
 
-soln here
+The proof that follows closely mirrors the fundamental lemma of the
+calculus of variations:
+
+Suppose the conditions above hold. Then, clearly
+%
+\begin{equation}
+    \int_{-10}^{10} \left(f(x) - g(x)\right) h(x) \mathrm{d} x = 0
+    \quad \text { for any } h \text { integrable on } [-10, 10]
+    \label{eq:q3pa}
+\end{equation}
+%
+For convenience, let $M(x) = f(x) - g(x)$. Note that $M(x)$ is also
+continuous on $[-10, 10]$. Suppose that $M(x)$ is either positive (or
+negative) at some point in $[-10, 10]$. Since $M(x)$ is continuous, it
+must be positive (or negative) in an interval $[x_1, x_2] \in [-10, 10]$.
+
+Consider the integrable function $h$ defined as
+%
+\begin{equation*}
+    h(x) =
+        \begin{dcases}
+            (x - x_1)^2 (x - x_2)^2, & x \in [x_1, x_2] \\
+            0, & x \not\in [x_1, x_2]
+        \end{dcases}
+\end{equation*}
+%
+Then
+%
+\begin{align*}
+    \int_{-10}^{10} M(x) h(x) \mathrm{d} x
+        &= \int_{x_1}^{x_2} M(x) (x - x_1)^2 (x - x_2)^2 \mathrm{d} x \\
+        &\neq 0
+\end{align*}
+%
+But this contradicts \eqref{eq:q3pa}. Hence
+%
+\begin{align*}
+    &M(x) = 0, \quad x \in [-10, 10] \\
+    &\Rightarrow f(x) - g(x) = 0, \quad x \in [-10, 10] \\
+    &\Rightarrow f(x) = g(x), \quad x \in [-10, 10]
+\end{align*}
 
 \vspace{5mm}
 
