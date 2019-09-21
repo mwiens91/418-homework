@@ -13,6 +13,8 @@
 \usepackage{mathtools}
 \usepackage{amssymb}
 
+\DeclareMathOperator\supp{supp}
+
 % Links
 \usepackage{hyperref}
 
@@ -424,6 +426,123 @@ distributions?
 
 \textbf{Solution}
 
-soln here
+Let $F$ be the distribution corresponding to $f$. We can find $F^\prime$
+as follows:
+
+Let $\phi \in \mathcal{D}$. Then, for some $l \in \mathbb{R}$, $\supp
+\phi \subseteq [-l, l]$. Thus we have
+%
+\begin{align*}
+    \langle F^\prime, \phi \rangle
+        &\equiv \langle F, \phi^\prime \rangle \\
+        &= \int_{- \infty}^{\infty} f(x) \phi^\prime(x) \mathrm{d} x \\
+        &= \underbrace{\int_{0}^{l} x \phi^\prime(x) \mathrm{d} x}_{I_1}
+            - \underbrace{\int_{-l}^{0} x \phi^\prime(x) \mathrm{d} x}_{I_2} \\
+        &= I_1 - I_2
+\end{align*}
+%
+with (using integration by parts)
+%
+\begin{align*}
+    I_1 &= \int_{0}^{l} x \phi^\prime(x) \mathrm{d} x \\
+        &= \big[ x \phi(x) \big]_{0}^{l} - \int_{0}^{l} \phi(x) \mathrm{d} x \\
+        &= - \int_{0}^{l} \phi(x) \mathrm{d} x \\
+        &= - \int_{0}^{\infty} \phi(x) \mathrm{d} x
+\end{align*}
+%
+By similar calculation we have
+%
+\begin{equation*}
+    I_2 = - \int_{- \infty}^{0} \phi(x) \mathrm{d} x
+\end{equation*}
+%
+and hence
+%
+\begin{align*}
+    \langle F^\prime, \phi \rangle
+        &= I_1 - I_2 \\
+        &= \int_{- \infty}^{0} \phi(x) \mathrm{d} x - \int_{0}^{\infty} \phi(x) \mathrm{d} x \\
+        &= \int_{- \infty}^{\infty} g(x) \phi(x) \mathrm{d} x
+\end{align*}
+%
+where
+%
+\begin{equation*}
+    g(x) =
+        \begin{cases}
+            1, & x \leq 0 \\
+            -1, & x > 0
+        \end{cases}
+\end{equation*}
+%
+for any $\phi \in \mathcal{D}$ Hence $F^\prime = G$ where $G$ is the
+distribution corresponding to $g$.
+
+Now, taking the first-order distributional derivative of $F^\prime$,
+again let $\phi \in \mathcal{D}$ with $\supp \phi \subseteq [-l, l]$ for
+some $l \in \mathbb{R}$. Then we have
+%
+\begin{align*}
+    \langle F^{\prime \prime}, \phi \rangle
+        &= \langle G^\prime, \phi \rangle \\
+        &\equiv \langle G, \phi^\prime \rangle \\
+        &= \int_{- \infty}^{\infty} g(x) \phi^\prime(x) \mathrm{d} x \\
+        &= - \int_{0}^{l} \phi^\prime(x) \mathrm{d} x
+            + \int_{-l}^{0} \phi^\prime(x) \mathrm{d} x \\
+        &= - \left( \phi(l) - \phi(0) \right) + \left( \phi(0) - \phi(-l) \right) \\
+        &= 2 \phi(0) \\
+\end{align*}
+%
+and hence we identify
+%
+\begin{equation*}
+    F^{\prime \prime} = 2 \delta_0
+\end{equation*}
+%
+We can also find $F^{\prime \prime}$ by using the definition of the
+second-order distributional derivative:
+
+Let $\phi \in \mathcal{D}$ with $\supp \phi \subseteq [-l, l]$ for some
+$l \in \mathbb{R}$. Then we have
+%
+\begin{align*}
+    \langle F^{\prime \prime}, \phi \rangle
+        &\equiv \langle F, \phi^{\prime \prime} \rangle \\
+        &= \int_{- \infty}^{\infty} f(x) \phi^{\prime \prime}(x) \mathrm{d} x \\
+        &= \underbrace{\int_{0}^{l} x \phi^{\prime \prime}(x) \mathrm{d} x}_{I_3}
+            - \underbrace{\int_{-l}^{0} x \phi^{\prime \prime}(x) \mathrm{d} x}_{I_4} \\
+        &= I_3 - I_4
+\end{align*}
+%
+where we calculate
+%
+\begin{align*}
+    I_3 &= \int_{0}^{l} x \phi^{\prime(x) \prime} \mathrm{d} x \\
+        &= \big[ x \phi^\prime(x) \big]_{0}^{l} - \int_{0}^{l} \phi^\prime(x) \mathrm{d} x \\
+        &= \phi(0)
+\end{align*}
+%
+and similarly
+%
+\begin{equation*}
+    I_4 = - \phi(0)
+\end{equation*}
+%
+Hence
+%
+\begin{align*}
+    \langle F^{\prime \prime}, \phi \rangle
+        &= I_3 - I_4 \\
+        &= (\phi(0)) - (- \phi(0)) \\
+        &= 2 \phi(0)
+\end{align*}
+%
+and hence we, again, identify
+%
+\begin{equation*}
+    F^{\prime \prime} = 2 \delta_0
+\end{equation*}
+%
+which agrees with our previous calculation.
 
 \end{document}
