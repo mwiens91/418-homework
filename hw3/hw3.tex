@@ -1,0 +1,128 @@
+% Set up the document
+\documentclass{article}
+
+% Page size
+\usepackage[
+    letterpaper,]{geometry}
+
+% Lines between paragraphs
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+
+% Links
+\usepackage{hyperref}
+
+% Page numbers at top right
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\renewcommand\headrulewidth{0pt}
+
+\begin{document}
+
+\textbf{MATH 418 Homework 3} \\
+\textbf{Matt Wiens \#301294492} \\
+\textbf{2019-09-30}
+
+1. [7.9.8] Suppose $f$ is a $C^{1}$ except at a point $x_{0}$. Define
+the function
+%
+\begin{equation*}
+    g(x) =
+        \begin{cases}
+            f^{\prime}(x), & x \neq x_0 \\
+            0, & x=x_0
+        \end{cases}
+\end{equation*}
+%
+(a) If $f$ is continuous at $x=x_0$, prove that $f^{\prime} = g$ in the
+sense of distributions.
+
+\textbf{Solution}
+
+\textbf{FINISH ME}
+
+\vspace{5mm}
+
+(b) Suppose $f$ has a jump discontinuity at $x_0$ with
+%
+\begin{equation*}
+    a = \lim_{x \rightarrow x_0^-} f(x)
+        \quad \text {and} \quad
+    b = \lim_{x \rightarrow x_0^+} f(x)
+\end{equation*}
+%
+Show that
+%
+\begin{equation*}
+    f^{\prime} =g + (b - a) \delta_{x_0} \quad \text {in the sense of distributions}
+\end{equation*}
+
+\textbf{Solution}
+
+\textbf{FINISH ME}
+
+\vspace{5mm}
+
+[7.9.13] Let $f(x)$ be any integrable, periodic function with period $l$
+such that its integral over any interval of length $l$ is $A$ for some
+$A \in \mathbb{R}$. Define
+%
+\begin{equation*}
+    f_n(x) \vcentcolon= f(n x)
+\end{equation*}
+%
+and prove that $f_n(x)$ converges to $f(x) \equiv A$ in the sense of
+distributions.
+
+\textbf{Solution}
+
+\textbf{FINISH ME}
+
+\vspace{5mm}
+
+[7.9.14] Find the distributional limit of the sequence of distributions
+%
+\begin{equation*}
+    F_n = n \delta_{- \frac{1}{n}} - n \delta_{\frac{1}{n}}
+\end{equation*}
+
+\textbf{Solution}
+
+\textbf{FINISH ME}
+
+\newpage
+
+2. (a) Define the sequence of distributions
+%
+\begin{equation*}
+    f_k = \sum_{n = 1}^k \delta_k
+\end{equation*}
+%
+Show that the limit of $f_k$ exists as a distribution. Find a locally
+integrable function $F$ such that the distributional derivative of $F$
+is the limit of $f_k$.
+
+\textbf{Solution}
+
+\textbf{FINISH ME}
+
+\vspace{5mm}
+
+(b) Can you give a proper definition of $u$ being a distributional
+solution to the following differential equation?
+%
+\begin{equation*}
+    u_t + u_x = 0
+\end{equation*}
+
+\textbf{Solution}
+
+\textbf{FINISH ME}
+
+\end{document}
