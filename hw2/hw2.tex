@@ -302,7 +302,32 @@ $f$ must be uniformly continuous on $[a, b]$.
 
 \textbf{Solution}
 
-soln here
+Suppose $f \in C^1[a, b]$. Then there exists $M \in \mathbb{R}$ such
+that $|f(x)| < M$ for all $x \in [a, b]$.
+
+Fix any $\epsilon > 0$ and consider any $x, y \in [a, b]$. Then the mean
+value theorem tells us that there exists $c \in [x, y]$ such that
+%
+\begin{equation*}
+    f(y) - f(x) = f^\prime(c) (y - x)
+\end{equation*}
+%
+Taking the absolute value of both sides we have
+%
+\begin{align*}
+    &|f(y) - f(x)| = |f^\prime(c)| |y - x| \\
+    &\iff |f(x) - f(y)| = |f^\prime(c)| |x - y| \\
+    &\iff |f(x) - f(y)| < M |x - y| \\
+\end{align*}
+%
+Hence if we take $\delta = \frac{\epsilon}{M}$ then for all $x, y \in [a, b]$
+%
+\begin{equation*}
+    |x - y| < \delta
+    \Rightarrow |f(x) - f(y)| < M |x - y| < M \frac{\epsilon}{M} = \epsilon
+\end{equation*}
+%
+and hence f is uniformly continuous on $[a, b]$.
 
 \vspace{5mm}
 
