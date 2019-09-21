@@ -394,7 +394,24 @@ first-order derivative (in the distributional sense) of the function
 %
 \textbf{Solution}
 
-soln here
+For the sake of clarity, let $H$ be the distribution corresponding to
+$h$. Then for any $\phi \in \mathcal{D}$ we have
+%
+\begin{align*}
+    \langle H^\prime, \phi \rangle
+        &\equiv \langle H, \phi^\prime \rangle \\
+        &= \int_{- \infty}^{\infty} h(x) \phi^\prime(x) \mathrm{d} x \\
+        &= \int_{-2}^{-1} 2 \phi^\prime(x) \mathrm{d} x
+            + \int_{1}^{2} \phi^\prime(x) \mathrm{d} x \\
+        &= 2 \left( \phi(-1) - \phi(-2) \right) + \left( \phi(2) - \phi(1) \right) \\
+        &= 2 \phi(-1) + \phi(2) - 2 \phi(-2) - \phi(1)
+\end{align*}
+%
+Hence we identify
+%
+\begin{equation*}
+    H^\prime = 2 \delta_{-1} + \delta_2 - 2 \delta_{-2} - \delta_1
+\end{equation*}
 
 \vspace{5mm}
 
