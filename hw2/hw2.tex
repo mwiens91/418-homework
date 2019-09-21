@@ -306,12 +306,40 @@ soln here
 
 \vspace{5mm}
 
-(c) Give a counterexample where $f_n \rightarrow f$ pointwise on
+(c) Give a counterexample where $f_n \to f$ pointwise on
 $\mathbb{R}$ but not uniformly.
 
 \textbf{Solution}
 
-soln here
+A simple counterexample is a sequence of ``spike'' functions with
+``height'' $1$:
+%
+\begin{equation*}
+    f_n(x) =
+        \begin{cases}
+            n x, & 0 \leq x < \frac{1}{n} \\
+            2 - n x & \frac{1}{n} \leq x < \frac{2}{n} \\
+            0 & \frac{2}{N} \leq x
+        \end{cases}
+\end{equation*}
+%
+If we let $f: x \mapsto 0$, then for any $x \in \mathbb{R}$
+%
+\begin{equation*}
+    \lim_{n \to \infty} f_n(x) = 0 = f(x)
+\end{equation*}
+%
+and hence $f_n \to f$ in the pointwise sense.
+
+However, for any $n \in \mathbb{N}$,
+%
+\begin{align*}
+    \sup_{x \in \mathbb{R}} |f_n(x) - f(x)|
+        &= \sup_{x \in \mathbb{R}} |f_n(x)| \\
+        &= 1
+\end{align*}
+%
+so $f_n \not\to f$ uniformly.
 
 \newpage
 
