@@ -60,7 +60,78 @@ $u\left(\frac{9}{2},1\right)$? Explain your reasoning.
 
 \textbf{Solution}
 
-soln here
+Using the Method of Characteristics we set up the following system of
+equations:
+%
+\begin{equation*}
+    \begin{dcases}
+        \frac{d x}{d s} = 1 \\
+        \frac{d y}{d s} = y^2 \\
+        \frac{d U}{d s} = 0 \\
+        \left( x(0), y(0), U(0)\right) = \left( x_0, y_0, u(x_0, y_0) \right)
+    \end{dcases}
+\end{equation*}
+%
+Solving this system we obtain
+%
+\begin{align*}
+    x(s) &= s + x_0 \\
+    y(s) &= \left(\frac{1}{y_0} - s\right)^{-1} \\
+    U(s) &= u(x_0, y_0)
+\end{align*}
+%
+Solving for $s$ and $x_0$ we have
+%
+\begin{align*}
+    s &= \frac{y - y_0}{y y_0} \\
+    x_0 &= x - \frac{y - y_0}{y y_0}
+\end{align*}
+%
+and hence
+%
+\begin{equation}
+    u(x, y) = u\left(x - \frac{y - y_0}{y y_0}, y_0\right)
+    \label{eq:q1pa}
+\end{equation}
+%
+Now, to determine $u\left(\frac{5}{2}, \frac{1}{2}\right)$, we use
+\eqref{eq:q1pa} to obtain
+%
+\begin{equation*}
+    u\left(\frac{5}{2}, \frac{1}{2}\right) = u\left(\frac{9 y_0 - 2}{2 y_0}, y_0\right)
+\end{equation*}
+%
+Taking $y_0 = 2$ we have
+%
+\begin{align*}
+    u\left(\frac{5}{2}, \frac{1}{2}\right) &= u(4, 2) \\
+    &= -6
+\end{align*}
+%
+To determine $u\left(8,-\frac{2}{5}\right)$, we use
+\eqref{eq:q1pa} to obtain
+%
+\begin{equation*}
+    u\left(8, -\frac{2}{5}\right) = u\left(\frac{11 y_0 - 2}{2 y_0}, y_0\right)
+\end{equation*}
+%
+Taking $y_0 = -2$ we have
+%
+\begin{align*}
+    u\left(8, -\frac{2}{5}\right) &= u(6, -2) \\
+    &= 0
+\end{align*}
+%
+Finally, to determine $u\left(\frac{9}{2},1\right)$, we use
+\eqref{eq:q1pa} to obtain
+%
+\begin{align*}
+    u\left(\frac{9}{2}, 1\right)
+        &= u\left(\frac{11 y_0 - 2}{2 y_0}, y_0\right) \\
+        &= u\left(8, -\frac{2}{5}\right) \\
+        &= u(6, -2) \\
+        &= 0
+\end{align*}
 
 \vspace{5mm}
 
