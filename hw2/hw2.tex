@@ -220,7 +220,51 @@ which lets us solve for $x$ to obtain
     x(s) = h(x_0) s + x_0
 \end{equation*}
 
-\textbf{FINISH ME}
+Now, in terms of $t$ we have
+%
+\begin{align*}
+    x(t) &=
+        \begin{cases}
+            \frac{1}{2} t + x_0, & x_0 < -2 \\
+            -\frac{1}{2} t + x_0, & x_0 > 2 \\
+            -\frac{1}{4} x_0 t + x_0, & x_0 \in [-2, 2]
+        \end{cases}
+    \\
+    U(t) &=
+        \begin{cases}
+            \frac{1}{2}, & x_0 < -2 \\
+            -\frac{1}{2}, & x_0 > 2 \\
+            -\frac{1}{4} x_0, & x_0 \in [-2, 2]
+        \end{cases}
+\end{align*}
+%
+Plots of the solution are shown below:
+%
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=12cm]{q2pa-1}
+\end{figure}
+%
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=12cm]{q2pa-2}
+\end{figure}
+%
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=12cm]{q2pa-3}
+\end{figure}
+%
+From the plots it appears that the characteristics will collide at $x =
+0$. We can solve for the exact time $t_c$ after which this occurs,
+identifying this is the time immediately after which the left-most
+characteristic reaches $x = 0$ (this is also the time after which the
+right-most characteristic reaches $x = 0$):
+%
+\begin{align*}
+    &\frac{1}{2} t_c - 2 = 0 \\
+    &\Rightarrow t_c = 4
+\end{align*}
 
 \vspace{5mm}
 
@@ -232,7 +276,7 @@ find the precise formulas if we change the definition of $h$ into
         \begin{cases}
             -\frac{1}{2}, & x < -2 \\
             \frac{1}{2}, & x > 2 \\
-            -\frac{1}{4} x, & x \in [-2, 2]
+            \frac{1}{4} x, & x \in [-2, 2]
         \end{cases}
 \end{equation*}
 %
@@ -240,7 +284,44 @@ In this case will the characteristics collide?
 
 \textbf{Solution}
 
-soln here
+With this new definition for $h$ we follow the same steps as in part
+(a), and then substituting in the new $h$ we have
+%
+\begin{align*}
+    x(t) &=
+        \begin{cases}
+            -\frac{1}{2} t + x_0, & x_0 < -2 \\
+            \frac{1}{2} t + x_0, & x_0 > 2 \\
+            \frac{1}{4} x_0 t + x_0, & x_0 \in [-2, 2]
+        \end{cases}
+    \\
+    U(t) &=
+        \begin{cases}
+            -\frac{1}{2}, & x_0 < -2 \\
+            \frac{1}{2}, & x_0 > 2 \\
+            \frac{1}{4} x_0, & x_0 \in [-2, 2]
+        \end{cases}
+\end{align*}
+%
+Plots of the solution are shown below:
+%
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=12cm]{q2pb-1}
+\end{figure}
+%
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=12cm]{q2pb-2}
+\end{figure}
+%
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=12cm]{q2pb-3}
+\end{figure}
+%
+We can see in this case that the characteristics will \textit{not}
+colide.
 
 \newpage
 
