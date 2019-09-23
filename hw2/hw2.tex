@@ -457,7 +457,67 @@ order $k$ are equal to its classical derivatives up to order $k$.
 
 \textbf{Solution}
 
-soln here
+Let $F$ be the distribution corresponding to a
+function $f : \mathbb{R}^{d} \rightarrow \mathbb{R}$, $f \in
+C^k(\mathbb{R}^d)$. Following the notation in lectures let $D_x^\alpha$
+denote a specific $n$-th order derivative. For this problem, we take $n
+\leq k$; i.e, $|\alpha| = n \leq k$. We want to show that for any such
+$\alpha$, $D_x^\alpha F$ is equal to the distribution $G$ corresponding
+to $D_x^\alpha f$.
+
+We proceed by induction. For the case where $k = 1$ we want to show that
+$\partial_{x_i}F = G$ where $G$ is the distribution corresponding to
+$\partial_{x_i} f$. Let $\phi \in \mathcal{D}$. Then for some open and
+bounded $\Omega \subset \mathbb{R}^d$, $\supp \phi \subset \Omega$. Let
+$\Gamma = \partial \Omega$. Then, using the fact that $\phi$ vanishes on
+$\Gamma$, we have
+%
+\begin{align*}
+    \langle G, \phi \rangle
+        &\equiv \int_{\mathbb{R}^d} \left[\partial_{x_i} f(x)\right] \phi(x) \mathrm{d} x \\
+        &= \int_{\Omega} \left[\partial_{x_i} f\right] \phi \,\mathrm{d} \Omega \\
+        &= \int_{\Gamma} f \phi \,\mathbf{e_i} \cdot \mathbf{\hat{n}} \,\mathrm{d} \Gamma
+            - \int_{\Omega} f \left[ \partial_{x_i} \phi \right] \mathrm{d} \Omega \\
+        &= - \int_{\Omega} f \left[ \partial_{x_i} \phi \right] \mathrm{d} \Omega \\
+        &= - \int_{\mathbb{R}^d} f(x) \left[ \partial_{x_i} \phi(x) \right] \mathrm{d} x \\
+        &\equiv \langle \partial_{x_i} F, \phi \rangle
+\end{align*}
+%
+Thus $\partial_{x_i} F = G$.
+
+Now suppose that for $k \leq m$, for any multi-index $\alpha$ with
+$|\alpha| \leq k$, $D_x^\alpha F$ is equal to the distribution $G$
+corresponding to $D_x^\alpha f$.
+
+Let $n \leq m$, then consider any $(n + 1)$-th order derivative
+$\partial_{x_i} D_x^\alpha$, where $|\alpha| <= n$. Letting $G$ be the
+distribution corresponding to $\partial_{x_i} D_x^\alpha f$, we want to
+show that $\partial_{x_i} D_x^\alpha F = G$.
+
+Let $\phi \in \mathcal{D}$. For some open and bounded
+$\Omega \subset \mathbb{R}^d$, $\supp \phi \subset \Omega$. Let
+$\Gamma = \partial \Omega$. Let $H$ be the distribution
+corresponding to $D_x^\alpha f$. Note that by hypothesis we have
+%
+\begin{equation*}
+    H = D_x^\alpha F
+\end{equation*}
+%
+Now,
+%
+\begin{align*}
+    \langle G, \phi \rangle
+        &\equiv \int_{\mathbb{R}^d} \left[\partial_{x_i} D_x^\alpha f(x)\right] \phi(x) \mathrm{d} x \\
+        &= \int_{\Omega} \left[\partial_{x_i} D_x^\alpha f\right] \phi \,\mathrm{d} \Omega \\
+        &= \int_{\Gamma} \left[D_x^\alpha f\right] \phi \,\mathbf{e_i} \cdot \mathbf{\hat{n}} \,\mathrm{d} \Gamma
+            - \int_{\Omega} \left[D_x^\alpha f\right] \left[ \partial_{x_i} \phi \right] \mathrm{d} \Omega \\
+        &= - \int_{\Omega} \left[D_x^\alpha f\right] \left[ \partial_{x_i} \phi \right] \mathrm{d} \Omega \\
+        &= - \int_{\mathbb{R}^d} \left[D_x^\alpha f(x)\right] \left[ \partial_{x_i} \phi(x) \right] \mathrm{d} x \\
+        &\equiv \langle \partial_{x_i} H, \phi \rangle \\
+        &= \langle \partial_{x_i} D_x^\alpha F, \phi \rangle
+\end{align*}
+%
+and hence $\partial_{x_i} D_x^\alpha F = G$, which completes the induction.
 
 \vspace{5mm}
 
