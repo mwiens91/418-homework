@@ -370,7 +370,71 @@ $N > \frac{2 M P Q l^2}{\epsilon}$, for any $n > N$ we have
 
 \textbf{Solution}
 
-\textbf{FINISH ME}
+From the course textbook we know that for the distribution $Y_a$
+corresponding to the function
+%
+\begin{equation*}
+    y_a(x) =
+        \begin{cases}
+            0, & x < a \\
+            1, & x \geq a
+        \end{cases}
+\end{equation*}
+%
+we have $Y_a^\prime = \delta_a$. Hence, letting
+%
+\begin{equation*}
+    G_n = n Y_{- \frac{1}{n}} - n Y_{\frac{1}{n}}
+\end{equation*}
+%
+we know that by the linearity of the space of distributions that
+$G_n^\prime = F_n$. Clearly we have that
+%
+\begin{equation*}
+    \lim_{n \to \infty} F_n = \lim_{n \to \infty} G_n^\prime
+\end{equation*}
+%
+Now, fix any $n \in \mathbb{N}$. Also fix any $\phi \in \mathcal{D}$
+with $\supp \phi \subseteq [-l, l]$ for some $l \in \mathbb{R}$ such
+that $|l| > \left|\frac{1}{n}\right|$. Then we have
+%
+\begin{align*}
+    \langle G_n^\prime, \phi \rangle
+        &\equiv - \langle G_n, \phi^\prime \rangle \\
+        &= - \int_{-\infty}^{\infty}
+            \left(n y_{- \frac{1}{n}}(x) - n y_{\frac{1}{n}}(x)\right) \phi^\prime(x)
+            \mathrm{d} x \\
+        &= - \int_{-l}^{l}
+            \left(n y_{- \frac{1}{n}}(x) - n y_{\frac{1}{n}}(x)\right) \phi^\prime(x)
+            \mathrm{d} x \\
+        &= - n \int_{-l}^{l} y_{- \frac{1}{n}}(x) \phi^\prime(x) \mathrm{d} x
+            + n \int_{-l}^{l} y_{\frac{1}{n}}(x) \phi^\prime(x) \mathrm{d} x \\
+        &= - n \int_{- \frac{1}{n}}^{l} \phi^\prime(x) \mathrm{d} x
+            + n \int_{\frac{1}{n}}^{l} \phi^\prime(x) \mathrm{d} x \\
+        &\stackrel{(y = n x)}{=}
+            - \int_{-1}^{n l} \phi^\prime\left(\frac{y}{n}\right) \mathrm{d} y
+            + \int_{1}^{n l} \phi^\prime\left(\frac{y}{n}\right) \mathrm{d} y \\
+        &= - \int_{-1}^{n l} \phi^\prime\left(\frac{y}{n}\right) \mathrm{d} y
+            - \int_{n l}^{1} \phi^\prime\left(\frac{y}{n}\right) \mathrm{d} y \\
+        &= - \int_{-1}^{1} \phi^\prime\left(\frac{y}{n}\right) \mathrm{d} y \\
+\end{align*}
+%
+Since $\phi^\prime$ is an integrable and hence bounded function, we have that
+%
+\begin{align*}
+    \lim_{n \to \infty} \left[ - \int_{-1}^{1} \phi^\prime\left(\frac{y}{n}\right) \mathrm{d} y \right]
+        &= - \int_{-1}^{1} \lim_{n \to \infty} \phi^\prime\left(\frac{y}{n}\right) \mathrm{d} y \\
+        &= - \phi^\prime(0) \int_{-1}^{1} \mathrm{d} y \\
+        &= -2 \phi^\prime(0)
+\end{align*}
+%
+Hence we have that, for any $\phi \in \mathcal{D}$,
+%
+\begin{align*}
+    \lim_{n \to \infty} \langle F_n, \phi \rangle
+        &= \lim_{n \to \infty} \langle G_n^\prime, \phi \rangle \\
+        &= -2 \phi^\prime(0)
+\end{align*}
 
 \newpage
 
