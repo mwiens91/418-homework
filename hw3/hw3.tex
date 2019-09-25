@@ -236,7 +236,129 @@ distributions.
 
 \textbf{Solution}
 
-\textbf{FINISH ME}
+For each $n$, let $F_n$ denote the distributions corresponding to $f_n$.
+Let $\phi \in \mathcal{D}$ with $\supp \phi \subseteq [-l M, l M]$ for
+some for some $M \in \mathbb{N}$. Noting that
+%
+\begin{equation*}
+    \langle F_n, \phi \rangle
+        = \int_{-\infty}^{\infty} f_n(x) \phi(x) \mathrm{d} x \\
+\end{equation*}
+%
+we want to show that for all $\epsilon > 0$, there exists
+$N \in \mathbb{N}$ such that $n \geq N$ implies
+%
+\begin{equation*}
+    \left| \int_{-\infty}^{\infty} \left[ f_n(x) - A \right] \phi(x) \mathrm{d} x \right| < \epsilon
+\end{equation*}
+%
+Now, simplifying the above expression and using a change of variables we have
+%
+\begin{align*}
+    \left| \int_{-\infty}^{\infty} \left[ f_n(x) - A \right] \phi(x) \mathrm{d} x \right|
+        &=\left| \int_{-\infty}^{\infty} \left[ f(n x) - A \right] \phi(x) \mathrm{d} x \right| \\
+        &= \left| \int_{-l M}^{l M} \left[ f(n x) - A \right] \phi(x) \mathrm{d} x \right| \\
+        &= \frac{1}{n} \left| \int_{-l M n}^{l M n} \left[ f(y) - A \right] \phi\left(\frac{y}{n}\right) \mathrm{d} y \right| \\
+        &= \frac{1}{n} \left| \sum_{k = 1}^{2 M n} \int_{-l M n + (k - 1) l}^{- l M n + k l} \left( f(y) - A \right) \phi\left(\frac{y}{n}\right) \mathrm{d} y \right| \\
+        &= \frac{1}{n} \left| \sum_{k = 1}^{2 M n} I_k \right|
+\end{align*}
+%
+where
+%
+\begin{equation*}
+    I_k = \int_{-l M n + (k - 1) l}^{- l M n + k l} \left( f(y) - A \right) \phi\left(\frac{y}{n}\right) \mathrm{d} y
+\end{equation*}
+%
+Let $\bar{y}_k$ be the midpoint of each interval
+$[- l M n + (k - 1) l, - l M n + k l]$. Then, adding zero to the
+integrand in $I_k$ we have, noting that for any constant $c$,
+%
+\begin{equation*}
+    \int_{-l M n + (k - 1) l}^{- l M n + k l} c \left( f(x) - A \right) \mathrm{d} x = 0
+\end{equation*}
+%
+that
+%
+\begin{align*}
+    I_k &= \int_{-l M n + (k - 1) l}^{- l M n + k l}
+            \left( f(y) - A \right) \left( \phi\left(\frac{y}{n}\right) - \phi\left(\frac{\bar{y}_k}{n}\right) \right)
+            + \left( f(y) - A \right) \phi\left(\frac{\bar{y}_k}{n}\right)
+           \mathrm{d} y \\
+        &= \int_{-l M n + (k - 1) l}^{- l M n + k l}
+            \left( f(y) - A \right) \left( \phi\left(\frac{y}{n}\right) - \phi\left(\frac{\bar{y}_k}{n}\right) \right)
+           \mathrm{d} y
+\end{align*}
+%
+By the Mean Value Theorem we have that, for all $y \in \mathbb{R}$ there
+exists $\zeta \in \mathbb{R}$ such that
+%
+\begin{equation*}
+    \phi\left(\frac{y}{n}\right) - \phi\left(\frac{\bar{y}_k}{n}\right)
+        = \phi^\prime(\zeta) \left( \frac{y}{n} - \frac{\bar{y}_k}{n} \right)
+\end{equation*}
+%
+and hence fixing such a $\zeta$ we have
+%
+\begin{align*}
+    I_k &= \int_{-l M n + (k - 1) l}^{- l M n + k l}
+            \left( f(y) - A \right) \phi^\prime(\zeta) \left( \frac{y}{n} - \frac{\bar{y}_k}{n} \right)
+           \mathrm{d} y \\
+        &= \frac{1}{n} \int_{-l M n + (k - 1) l}^{- l M n + k l}
+            \left( f(y) - A \right) \phi^\prime(\zeta) \left( y - \bar{y}_k \right)
+           \mathrm{d} y
+\end{align*}
+%
+Now we invoke several inequalities. In each interval
+$[- l M n + (k - 1) l, - l M n + k l]$, we have that $|y - \bar{y}_k| \leq l$.
+Since both $f$ and $\phi^\prime$ are integrable, they are bounded, and
+hence there exist $P, Q \in \mathbb{R}$ such that for all
+$y \in \mathbb{R}$, $|f(y) - A| < P$ and $|\phi^\prime(y)| < Q$.
+%
+Hence,
+%
+\begin{align*}
+    |I_k| &= \left|
+                \frac{1}{n} \int_{-l M n + (k - 1) l}^{- l M n + k l}
+                 \left( f(y) - A \right) \phi^\prime(\zeta) \left( y - \bar{y}_k \right)
+                \mathrm{d} y
+             \right| \\
+          &= \frac{1}{n} \left|
+                \int_{-l M n + (k - 1) l}^{- l M n + k l}
+                 \left( f(y) - A \right) \phi^\prime(\zeta) \left( y - \bar{y}_k \right)
+                \mathrm{d} y
+             \right| \\
+          &\leq \frac{1}{n}
+                \int_{-l M n + (k - 1) l}^{- l M n + k l}
+                 \left| \left( f(y) - A \right) \right|
+                 \left| \phi^\prime(\zeta) \right|
+                 \left| y - \bar{y}_k \right|
+                \mathrm{d} y \\
+          &< \frac{P Q l}{n}
+                \int_{-l M n + (k - 1) l}^{- l M n + k l}
+                \mathrm{d} y \\
+          &= \frac{P Q l^2}{n}
+\end{align*}
+%
+Now,
+%
+\begin{align*}
+    \left| \int_{-\infty}^{\infty} \left[ f_n(x) - A \right] \phi(x) \mathrm{d} x \right|
+        &= \frac{1}{n} \left| \sum_{k = 1}^{2 M n} I_k \right| \\
+        &\leq \frac{1}{n} \sum_{k = 1}^{2 M n} |I_k| \\
+        &< \frac{1}{n} \sum_{k = 1}^{2 M n} \frac{P Q l^2}{n} \\
+        &= \frac{2 M P Q l^2}{n}
+\end{align*}
+%
+Now if you fix any $\epsilon > 0$, then taking
+$N > \frac{2 M P Q l^2}{\epsilon}$, for any $n > N$ we have
+%
+\begin{align*}
+    \left| \int_{-\infty}^{\infty} \left[ f_n(x) - A \right] \phi(x) \mathrm{d} x \right|
+        &< \frac{2 M P Q l^2}{n} \\
+        &< \frac{2 M P Q l^2}{N} \\
+        &< \frac{2 M P Q l^2}{\left(\frac{2 M P Q l^2}{\epsilon}\right)} \\
+        &= \epsilon
+\end{align*}
 
 \vspace{5mm}
 
