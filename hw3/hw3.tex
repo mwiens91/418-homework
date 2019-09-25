@@ -13,6 +13,8 @@
 \usepackage{mathtools}
 \usepackage{amssymb}
 
+\DeclareMathOperator\supp{supp}
+
 % Links
 \usepackage{hyperref}
 
@@ -29,8 +31,8 @@
 \textbf{Matt Wiens \#301294492} \\
 \textbf{2019-09-30}
 
-1. [7.9.8] Suppose $f$ is a $C^{1}$ except at a point $x_{0}$. Define
-the function
+1. [7.9.8] Suppose $f$ is a $C^{1}$ function except at a point $x_{0}$.
+Define the function
 %
 \begin{equation*}
     g(x) =
@@ -45,7 +47,75 @@ sense of distributions.
 
 \textbf{Solution}
 
-\textbf{FINISH ME}
+Let $F$ and $G$ be the distributions corresponding to $f$ and $g$,
+respectively. We want to show that $F^\prime = G$. Let
+$\phi \in \mathcal{D}$ with $\supp \phi \subseteq [-l, l]$ for some
+$l \in \mathbb{R}$ where $x_0 \in [-l, l]$. Then
+
+\begin{align*}
+    \langle F^\prime, \phi \rangle
+        &\equiv - \langle F, \phi^\prime \rangle \\
+        &= - \int_{-\infty}^{\infty} f(x) \phi^\prime(x) \mathrm{d} x \\
+        &= - \int_{-l}^{l} f(x) \phi^\prime(x) \mathrm{d} x \\
+        &= - \int_{-l}^{x_0} f(x) \phi^\prime(x) \mathrm{d} x
+           - \int_{x_0}^{l} f(x) \phi^\prime(x) \mathrm{d} x \\
+        &= - \lim_{\epsilon \to 0}
+            \left[
+                \int_{-l}^{x_0 - \epsilon} f(x) \phi^\prime(x) \mathrm{d} x
+                + \int_{x_0 + \epsilon}^{l} f(x) \phi^\prime(x) \mathrm{d} x
+            \right] \\
+        &= - \lim_{\epsilon \to 0}
+            \left[
+                \left(
+                    \left[f(x) \phi(x)\right]_{-l}^{x_0 - \epsilon}
+                    - \int_{-l}^{x_0 - \epsilon} f^\prime(x) \phi(x) \mathrm{d} x
+                \right)
+                +
+                \left(
+                    \left[f(x) \phi(x)\right]_{x_0 + \epsilon}^{l}
+                    - \int_{x_0 + \epsilon}^{l} f^\prime(x) \phi(x) \mathrm{d} x
+                \right)
+            \right] \\
+        &= - \lim_{\epsilon \to 0}
+            \left[
+                \left(
+                    f(x_0 - \epsilon) \phi(x_0 - \epsilon)
+                    - f(x_0 + \epsilon) \phi(x_0 + \epsilon)
+                \right)
+                -
+                \left(
+                    \int_{-l}^{x_0 - \epsilon} f^\prime(x) \phi(x) \mathrm{d} x
+                    + \int_{x_0 + \epsilon}^{l} f^\prime(x) \phi(x) \mathrm{d} x
+                \right)
+            \right] \\
+        &= - \lim_{\epsilon \to 0}
+            \left[
+                f(x_0 - \epsilon) \phi(x_0 - \epsilon)
+                - f(x_0 + \epsilon) \phi(x_0 + \epsilon)
+            \right]
+           + \lim_{\epsilon \to 0}
+            \left[
+                \int_{-l}^{x_0 - \epsilon} f^\prime(x) \phi(x) \mathrm{d} x
+                + \int_{x_0 + \epsilon}^{l} f^\prime(x) \phi(x) \mathrm{d} x
+            \right] \\
+        &= \lim_{\epsilon \to 0}
+            \left[
+                \int_{-l}^{x_0 - \epsilon} f^\prime(x) \phi(x) \mathrm{d} x
+                + \int_{x_0 + \epsilon}^{l} f^\prime(x) \phi(x) \mathrm{d} x
+            \right] \\
+        &= \lim_{\epsilon \to 0}
+            \left[
+                \int_{-l}^{x_0 - \epsilon} g(x) \phi(x) \mathrm{d} x
+                + \int_{x_0 + \epsilon}^{l} g(x) \phi(x) \mathrm{d} x
+            \right] \\
+        &= \int_{-l}^{x_0} g(x) \phi(x) \mathrm{d} x
+           + \int_{x_0}^{l} g(x) \phi(x) \mathrm{d} x \\
+        &= \int_{-l}^{l} g(x) \phi(x) \mathrm{d} x \\
+        &= \int_{-\infty}^{\infty} g(x) \phi(x) \mathrm{d} x \\
+        &\equiv \langle G, \phi \rangle
+\end{align*}
+
+And hence we conclude that $F^\prime = G$.
 
 \vspace{5mm}
 
