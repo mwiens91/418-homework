@@ -441,7 +441,7 @@ Hence we have that, for any $\phi \in \mathcal{D}$,
 2. (a) Define the sequence of distributions
 %
 \begin{equation*}
-    f_k = \sum_{n = 1}^k \delta_k
+    f_k = \sum_{n = 1}^k \delta_n
 \end{equation*}
 %
 Show that the limit of $f_k$ exists as a distribution. Find a locally
@@ -450,7 +450,53 @@ is the limit of $f_k$.
 
 \textbf{Solution}
 
-\textbf{FINISH ME}
+First we will show that the limit of $f_k$ exists by showing that for
+all $\phi \in \mathcal{D}$,
+%
+\begin{equation*}
+    \left| \langle \lim_{k \to \infty} f_k, \phi \rangle \right| < \infty
+\end{equation*}
+%
+Fix any $\phi \in \mathcal{D}$ with $\supp \phi \subseteq [-m, m]$
+for some $m \in \mathbb{N}$. Then, using the linearity of the space of
+distributions, we have
+%
+\begin{align*}
+    \left| \langle \lim_{k \to \infty} f_k, \phi \rangle \right|
+        &= \left| \sum_{n=1}^\infty \langle \delta_n, \phi \rangle \right| \\
+        &= \left| \sum_{n=1}^\infty \phi(n) \right| \\
+        &= \left| \sum_{n=1}^m \phi(n) \right| \\
+        &\leq \sum_{n=1}^m |\phi(n)| \\
+        &< \infty
+\end{align*}
+%
+Since $\phi$ is integrable and we are summing over finitely many terms.
+Hence the limit of $f_k$ exists as a distribution. From the course
+textbook we know that distribution $Y_n$ corresponding to the function
+%
+\begin{equation*}
+    y_n(x) =
+        \begin{cases}
+            0, & x < n \\
+            1, & x \geq n
+        \end{cases}
+\end{equation*}
+%
+we have $Y_n^\prime = \delta_n$. Note that $y_n \in L_{\text{loc}}^1$
+and that any linear combination of these functions is also in
+$L_{\text{loc}}^1$. Hence the function
+%
+\begin{equation*}
+    F(x) = \sum_{n=1}^\infty y_n(x)
+\end{equation*}
+%
+is locally integrable and corresponds to the distribution
+%
+\begin{equation*}
+    G = \sum_{n=1}^\infty Y_n
+\end{equation*}
+%
+where we have $G^\prime = \lim_{k \to \infty} f_k$.
 
 \vspace{5mm}
 
