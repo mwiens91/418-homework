@@ -503,12 +503,24 @@ where we have $G^\prime = \lim_{k \to \infty} f_k$.
 (b) Can you give a proper definition of $u$ being a distributional
 solution to the following differential equation?
 %
-\begin{equation*}
+\begin{equation}
     u_t + u_x = 0
-\end{equation*}
+    \label{eq:q2pb}
+\end{equation}
 
 \textbf{Solution}
 
-\textbf{FINISH ME}
+We want to think of the solution to \eqref{eq:q2pb}, $u$, as a
+distribution; i.e., an element of the dual space of
+$\mathcal{D} \vcentcolon= C_c^\infty(\mathbb{R}^2)$. A suitable
+definition for a distributional solution to \eqref{eq:q2pb} would be the
+following:
+
+$u \in \mathcal{D}^*$ is a distributional solution to \eqref{eq:q2pb}
+provided that, for all $\phi \in \mathcal{D}$,
+%
+\begin{equation*}
+    \langle \partial_t u, \phi \rangle + \langle \partial_x u, \phi \rangle = 0
+\end{equation*}
 
 \end{document}
