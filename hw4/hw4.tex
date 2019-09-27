@@ -70,9 +70,9 @@ $f(t) = \sin \omega t$, where $\omega$ is any constant.
 (b) Show that
 %
 \begin{equation*}
-    \Lagr \left\{ \dod{f}{t} \right\}(s) \vcentcolon= s \Lagr \left\{ f \right\}(s) - f(0)
+    \Lagr \cbr{\dod{f}{t}}(s) \coloneqq s \Lagr \cbr{f}(s) - f(0)
     \quad \text{and} \quad
-    \Lagr \left\{ \dod[2]{f}{t} \right\}(s) \vcentcolon= s^2 \Lagr \left\{ f \right\}(s) - s f(0) - f^\prime(0)
+    \Lagr \cbr{\dod[2]{f}{t}}(s) \coloneqq s^2 \Lagr \cbr{f}(s) - s f(0) - f^\prime(0)
 \end{equation*}
 
 \textbf{Solution}
@@ -80,5 +80,90 @@ $f(t) = \sin \omega t$, where $\omega$ is any constant.
 \textit{awesome solution here}
 
 \vspace{5mm}
+
+(c) Let $g(t)$ be a function defined on all of $\mathbb{R}$ and let
+$f(t)$ be function defined on $\intco{0, \infty}$. Let
+%
+\begin{equation*}
+    F(s) = \Lagr \cbr{f}(s)
+    \quad \text{and} \quad
+    G(s) = \Lagr \cbr{g}(s) = \int_0^\infty g(t) e^{-s t} \dif t
+\end{equation*}
+%
+Then we can define a convolution $H(t)$ by
+%
+\begin{equation*}
+    H(t) \coloneqq \int_0^t g(t - t^\prime) f(t^\prime) \dif t^\prime
+\end{equation*}
+%
+Show that
+%
+\begin{equation*}
+    \Lagr \cbr{H}(s) = F(s) G(s)
+\end{equation*}
+
+\textbf{Solution}
+
+\textit{awesome solution here}
+
+\vspace{5mm}
+
+(d) Following the basic strategy we used with the Fourier transform in
+solving the ODE
+%
+\begin{equation*}
+    y^{\prime \prime}(x) - y(x) = f(x)
+\end{equation*}
+%
+use the Laplace transform to solve the IVP for $y(t)$:
+%
+\begin{equation*}
+    y^{\prime \prime}(t) - \omega^2 y(t) = f(t)
+    ,\quad
+    y(0) = y^\prime(0) = 0
+\end{equation*}
+%
+where $f$ is a given function on $\intco{0, \infty}$.
+
+\textbf{Solution}
+
+\textit{awesome solution here}
+
+\newpage
+
+2. (a) Use
+%
+\begin{equation*}
+    f(x) = e^{- \frac{x^2}{2}} \Rightarrow \widehat{f}(k) = \sqrt{2 \pi} e^{- \frac{k^2}{2}}
+\end{equation*}
+%
+and rescaling to show that for fixed $t$, the inverse Fourier transform of
+%
+\begin{equation*}
+    F(k) = e^{- k^2 t}
+\end{equation*}
+%
+is
+%
+\begin{equation*}
+    f(x) = \frac{1}{\sqrt{4 \pi t}} e^{- \frac{x^2}{4 t}}
+\end{equation*}
+
+\textbf{Solution}
+
+\textit{awesome solution here}
+
+\vspace{5mm}
+
+(b) Use the result in (a) to solve the equation
+%
+\begin{align*}
+    u_t - c^2 u_{x x} &= 0, \quad \quad t > 0, x \in \mathbb{R} \\
+    u(0, x) &= \phi(x), \quad \quad x \in \mathbb{R}
+\end{align*}
+
+\textbf{Solution}
+
+\textit{awesome solution here}
 
 \end{document}
