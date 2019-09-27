@@ -1,0 +1,84 @@
+% Set up the document
+\documentclass{article}
+
+% Page size
+\usepackage[
+    letterpaper,]{geometry}
+
+% Lines between paragraphs
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{commath}
+
+% Shortcut for curly L
+\DeclareMathOperator{\Lagr}{\mathcal{L}}
+
+% Links
+\usepackage{hyperref}
+
+% Page numbers at top right
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\renewcommand\headrulewidth{0pt}
+
+\begin{document}
+
+\textbf{MATH 418 Homework 4} \\
+\textbf{Matt Wiens \#301294492} \\
+\textbf{2019-10-11}
+
+1. [8.16.7] Let $f(x) = e^{-x^2}$ be a Gaussian. Compute explicitly $(f * f)(x)$.
+
+\textbf{Solution}
+
+\textit{awesome solution here}
+
+\vspace{5mm}
+
+[8.16.10] Suppose $y(x)$ is a function which solves
+%
+\begin{equation*}
+    \od[4]{y}{x} + 4 \od[2]{y}{x} + y = f(x)
+\end{equation*}
+%
+where $f(x)$ is some given function which is continuous and has compact
+support. Use the Fourier transform to write down an expression for
+$\hat{y}(k)$, the Fourier transform of the solution. Note that your
+answer will involve $\hat{f}(k)$.
+
+\textbf{Solution}
+
+\textit{awesome solution here}
+
+\vspace{5mm}
+
+[8.16.13] (a) Find the Laplace transform of $f(t) \equiv 1$ and of
+$f(t) = \sin \omega t$, where $\omega$ is any constant.
+
+\textbf{Solution}
+
+\textit{awesome solution here}
+
+\vspace{5mm}
+
+(b) Show that
+%
+\begin{equation*}
+    \Lagr \left\{ \dod{f}{t} \right\}(s) \vcentcolon= s \Lagr \left\{ f \right\}(s) - f(0)
+    \quad \text{and} \quad
+    \Lagr \left\{ \dod[2]{f}{t} \right\}(s) \vcentcolon= s^2 \Lagr \left\{ f \right\}(s) - s f(0) - f^\prime(0)
+\end{equation*}
+
+\textbf{Solution}
+
+\textit{awesome solution here}
+
+\vspace{5mm}
+
+\end{document}
