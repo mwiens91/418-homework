@@ -37,7 +37,15 @@
 
 \textbf{Solution}
 
-\textit{awesome solution here}
+Using the definition of the convolution, we have
+%
+\begin{align*}
+    (f * f)(x)
+        &= \int_{- \infty}^{\infty} f(x - y) f(y) \dif y \\
+        &= \int_{- \infty}^{\infty} e^{-(x - y)^2} e^{-y^2} \dif y \\
+        &= \int_{- \infty}^{\infty} e^{-x^2 + 2 x y - y^2} e^{-y^2} \dif y \\
+        &= e^{-x^2} \int_{- \infty}^{\infty} e^{2 x y - 2 y^2} \dif y
+\end{align*}
 
 \vspace{5mm}
 
