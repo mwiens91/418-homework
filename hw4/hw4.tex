@@ -53,6 +53,7 @@ Using the definition of the convolution, we have
 %
 \begin{equation*}
     \od[4]{y}{x} + 4 \od[2]{y}{x} + y = f(x)
+    ,
 \end{equation*}
 %
 where $f(x)$ is some given function which is continuous and has compact
@@ -81,6 +82,7 @@ $f(t) = \sin \omega t$, where $\omega$ is any constant.
     \Lagr \cbr{\dod{f}{t}}(s) \coloneqq s \Lagr \cbr{f}(s) - f(0)
     \quad \text{and} \quad
     \Lagr \cbr{\dod[2]{f}{t}}(s) \coloneqq s^2 \Lagr \cbr{f}(s) - s f(0) - f^\prime(0)
+    .
 \end{equation*}
 
 \textbf{Solution}
@@ -96,18 +98,21 @@ $f(t)$ be function defined on $\intco{0, \infty}$. Let
     F(s) = \Lagr \cbr{f}(s)
     \quad \text{and} \quad
     G(s) = \Lagr \cbr{g}(s) = \int_0^\infty g(t) e^{-s t} \dif t
+    .
 \end{equation*}
 %
 Then we can define a convolution $H(t)$ by
 %
 \begin{equation*}
     H(t) \coloneqq \int_0^t g(t - t^\prime) f(t^\prime) \dif t^\prime
+    .
 \end{equation*}
 %
 Show that
 %
 \begin{equation*}
     \Lagr \cbr{H}(s) = F(s) G(s)
+    .
 \end{equation*}
 
 \textbf{Solution}
@@ -121,6 +126,7 @@ solving the ODE
 %
 \begin{equation*}
     y^{\prime \prime}(x) - y(x) = f(x)
+    ,
 \end{equation*}
 %
 use the Laplace transform to solve the IVP for $y(t)$:
@@ -129,6 +135,7 @@ use the Laplace transform to solve the IVP for $y(t)$:
     y^{\prime \prime}(t) - \omega^2 y(t) = f(t)
     ,\quad
     y(0) = y^\prime(0) = 0
+    ,
 \end{equation*}
 %
 where $f$ is a given function on $\intco{0, \infty}$.
@@ -155,6 +162,7 @@ is
 %
 \begin{equation*}
     f(x) = \frac{1}{\sqrt{4 \pi t}} e^{- \frac{x^2}{4 t}}
+    .
 \end{equation*}
 
 \textbf{Solution}
@@ -166,8 +174,9 @@ is
 (b) Use the result in (a) to solve the equation
 %
 \begin{align*}
-    u_t - c^2 u_{x x} &= 0, \quad \quad t > 0, x \in \mathbb{R} \\
-    u(0, x) &= \phi(x), \quad \quad x \in \mathbb{R}
+    &u_t - c^2 u_{x x} = 0, \quad \quad t > 0, x \in \mathbb{R} \\
+    &u(0, x) = \phi(x), \quad \quad x \in \mathbb{R}
+    .
 \end{align*}
 
 \textbf{Solution}
