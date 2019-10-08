@@ -44,7 +44,21 @@ Using the definition of the convolution, we have
         &= \int_{- \infty}^{\infty} f(x - y) f(y) \dif y \\
         &= \int_{- \infty}^{\infty} e^{-(x - y)^2} e^{-y^2} \dif y \\
         &= \int_{- \infty}^{\infty} e^{-x^2 + 2 x y - y^2} e^{-y^2} \dif y \\
-        &= e^{-x^2} \int_{- \infty}^{\infty} e^{2 x y - 2 y^2} \dif y
+        &= e^{-x^2} \int_{- \infty}^{\infty} e^{2 x y - 2 y^2} \dif y \\
+        &= e^{-x^2} \int_{- \infty}^{\infty} e^{-2 (\frac{1}{4} x^2 - \frac{1}{2} x y + y^2)} e^{\frac{x^2}{2}} \dif y \\
+        &= e^{- \frac{x^2}{2}} \int_{- \infty}^{\infty} e^{-2 (y - \frac{x}{2})^2} \dif y \\
+        &= e^{- \frac{x^2}{2}} \int_{- \infty}^{\infty} e^{- \sbr{\sqrt2 (y - \frac{x}{2})}^2} \dif y
+        .
+\end{align*}
+%
+Making the change of variable $z = \sqrt2 (y - \frac{x}{2})$ in the
+intregal of above equation, we have
+%
+\begin{align*}
+    (f * f)(x)
+        &= \frac{e^{- \frac{x^2}{2}}}{\sqrt{2}} \int_{- \infty}^{\infty} e^{- z^2} \dif z \\
+        &= \frac{e^{- \frac{x^2}{2}}}{\sqrt{2}} \sqrt{\pi}
+        .
 \end{align*}
 
 \vspace{5mm}
