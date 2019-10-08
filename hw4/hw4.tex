@@ -260,7 +260,7 @@ integration as follows:
 \end{align*}
 %
 Then, proceeding, we make the change of variable $y = t - x$ for the
-integral, which gives us
+inner integral, which gives us
 %
 \begin{align*}
     \Lagr \cbr{H}(s)
@@ -304,7 +304,7 @@ solving the ODE
 use the Laplace transform to solve the IVP for $y(t)$:
 %
 \begin{equation*}
-    y^{\prime \prime}(t) - \omega^2 y(t) = f(t)
+    y^{\prime \prime}(t) + \omega^2 y(t) = f(t)
     ,\quad
     y(0) = y^\prime(0) = 0
     ,
@@ -314,7 +314,67 @@ where $f$ is a given function on $\intco{0, \infty}$.
 
 \textbf{Solution}
 
-\textit{awesome solution here}
+We will use the results from all the above parts here. Taking the
+Laplace transform of both sides of the ODE we have
+%
+\begin{align*}
+    &y^{\prime \prime}(t) + \omega^2 y(t) = f(t) \\
+    &\iff \Lagr \cbr{y^{\prime \prime} + \omega^2 y}(s) = \Lagr \cbr{f}(s) \\
+    &\iff \Lagr \cbr{y^{\prime \prime}}(s) + \omega^2 \Lagr \cbr{y}(s) = \Lagr \cbr{f}(s)
+    .
+\end{align*}
+%
+Using the results from part (b) and our initial condition, we continue:
+%
+\begin{align*}
+    &y^{\prime \prime}(t) + \omega^2 y(t) = f(t) \\
+    &\iff \Lagr \cbr{y^{\prime \prime}}(s) + \omega^2 \Lagr \cbr{y}(s) = \Lagr \cbr{f}(s) \\
+    &\iff s^2 \Lagr \cbr{y}(s) - s y(0) - y^\prime(0) + \omega^2 \Lagr \cbr{y}(s) = \Lagr \cbr{f}(s) \\
+    &\iff s^2 \Lagr \cbr{y}(s) + \omega^2 \Lagr \cbr{y}(s) = \Lagr \cbr{f}(s) \\
+    &\iff \del{s^2 + \omega^2} \Lagr \cbr{y}(s) = \Lagr \cbr{f}(s) \\
+    &\iff \Lagr \cbr{y}(s) = \frac{1}{s^2 + \omega^2} \Lagr \cbr{f}(s)
+    .
+\end{align*}
+%
+We now have two cases to consider: $\omega = 0$ and $\omega \neq 0$.
+
+\textbf{Case 1:} $\omega = 0$
+
+From the first results of parts (a) and (b), if $g(t) = t$ then
+have
+%
+\begin{align*}
+    &\frac{1}{s} = \Lagr \cbr{1}(s) = s \Lagr \cbr{g}(s) - g(0) = s \Lagr \cbr{g}(s) \\
+    &\Rightarrow \Lagr \cbr{g}(s) = \frac{1}{s^2}
+    .
+\end{align*}
+%
+Hence, using the result of part (c) we have
+%
+\begin{align*}
+    &y^{\prime \prime}(t) + \omega^2 y(t) = f(t) \\
+    &\iff \Lagr \cbr{y}(s) = \frac{1}{s^2 + \omega^2} \Lagr \cbr{f}(s) \\
+    &\iff \Lagr \cbr{y}(s) = \frac{1}{s^2} \Lagr \cbr{f}(s) \\
+    &\iff \Lagr \cbr{y}(s) = \Lagr \cbr{g}(s) \Lagr \cbr{f}(s) \\
+    &\iff y(t) = \int_0^t g(t - t^\prime) f(t^\prime) \dif t^\prime \\
+    &\iff y(t) = \int_0^t (t - t^\prime) f(t^\prime) \dif t^\prime
+    .
+\end{align*}
+
+\textbf{Case 2:} $\omega \neq 0$
+
+Then, letting $h(t) = \sin \omega t$, we use the results from parts (a)
+and (c) to write
+%
+\begin{align*}
+    &y^{\prime \prime}(t) + \omega^2 y(t) = f(t) \\
+    &\iff \Lagr \cbr{y}(s) = \frac{1}{s^2 + \omega^2} \Lagr \cbr{f}(s) \\
+    &\iff \Lagr \cbr{y}(s) = \frac{1}{\omega} \del{\frac{\omega}{s^2 + \omega^2} \Lagr \cbr{f}(s)} \\
+    &\iff \Lagr \cbr{y}(s) = \frac{1}{\omega} \del{\Lagr \cbr{h}(s) \Lagr \cbr{f}(s)} \\
+    &\iff y(t) = \frac{1}{\omega} \int_0^t h(t - t^\prime) f(t^\prime) \dif t^\prime \\
+    &\iff y(t) = \frac{1}{\omega} \int_0^t \sin \del{\omega (t - t^\prime)} f(t^\prime) \dif t^\prime \\
+    .
+\end{align*}
 
 \newpage
 
