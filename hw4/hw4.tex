@@ -77,7 +77,19 @@ answer will involve $\widehat{f}(k)$.
 
 \textbf{Solution}
 
-\textit{awesome solution here}
+Since $f$ is continuous and has compact support, $f \in L^1$, and hence
+it has a Fourier transform $\widehat{f}(k)$. Taking the Fourier
+transform of the above equation, we have
+%
+\begin{align*}
+    &\widehat{y^{(4)}}(k) + 4 \widehat{y^{(2)}}(k) + \widehat{y}(k) = \widehat{f}(k) \\
+    &\iff (i k)^4 \widehat{y}(k) + 4 (i k)^2 \widehat{y}(k) + \widehat{y}(k) = \widehat{f}(k) \\
+    &\iff k^4 \widehat{y}(k) - 4 k^2 \widehat{y}(k) + \widehat{y}(k) = \widehat{f}(k) \\
+    &\iff \del{k^4 - 4 k^2 + 1} \widehat{y}(k) = \widehat{f}(k) \\
+    &\iff \widehat{y}(k) = \frac{\widehat{f}(k)}{k^4 - 4 k^2 + 1}
+    .
+\end{align*}
+%
 
 \vspace{5mm}
 
