@@ -399,11 +399,36 @@ is
 
 \textbf{Solution}
 
-\textit{awesome solution here}
+Recall that for any $g \in L^1$ and $a \in \mathbb{R}$,
+%
+\begin{equation*}
+    \widehat{g(a x)} = \frac{1}{a} \widehat{g} \del{\frac{k}{a}}
+    .
+\end{equation*}
+%
+Thus, letting $h = \sqrt{2 \pi} e^{- \frac{k^2}{2}}$, we see that
+%
+\begin{align*}
+    F(k)
+        &= e^{- k^2 t} \\
+        &= \frac{1}{\sqrt{4 \pi t}} \sbr{\frac{1}{\frac{1}{\sqrt{2 t}}} h \del{\frac{k}{\frac{1}{\sqrt{2 t}}}}} \\
+        &= \frac{1}{\sqrt{4 \pi t}} h \del{\frac{1}{\sqrt{2 t}} x} \\
+        .
+\end{align*}
+%
+Hence,
+%
+\begin{align*}
+    \mathcal{F}^{-1} \cbr{F(k)}
+        &= \frac{1}{\sqrt{4 \pi t}} \mathcal{F}^{-1} \cbr{h \del{\frac{1}{\sqrt{2 t}} x}} \\
+        &= \frac{1}{\sqrt{4 \pi t}} e^{- \frac{\del{\frac{1}{\sqrt{2 t}} x}^2}{2}} \\
+        &= \frac{1}{\sqrt{4 \pi t}} e^{- \frac{x^2}{4 t}}
+        .
+\end{align*}
 
 \vspace{5mm}
 
-(b) Use the result in (a) to solve the equation
+(b) Use the result in part (a) to solve the equation
 %
 \begin{align*}
     &u_t - c^2 u_{x x} = 0, \quad \quad t > 0, x \in \mathbb{R} \\
@@ -413,6 +438,53 @@ is
 
 \textbf{Solution}
 
-\textit{awesome solution here}
+To start, we take the Fourier transform of both sides of the PDE in the
+$x$ variable, using the linearity of the Fourier transform and the fact
+(shown in lectures) that
+%
+\begin{equation*}
+    \widehat{\partial_t u}(k, t) = \partial_t \widehat{u} (k, t)
+    .
+\end{equation*}
+%
+Applying the Fourier transform to the PDE, we have
+%
+\begin{align*}
+    &u_t - c^2 u_{x x} = 0 \\
+    &\iff \widehat{u}_t - c^2 \widehat{u_{x x}} = 0 \\
+    &\iff \widehat{u}_t - c^2 (i k)^2 \widehat{u} = 0 \\
+    &\iff \widehat{u}_t = - c^2 k^2 \widehat{u} \\
+    &\iff \widehat{u}(k, t) = \widehat{\phi}(k) e^{- c^2 k^2 t}
+    .
+\end{align*}
+%
+Letting
+%
+\begin{equation*}
+    g(x, t) = \frac{1}{c \sqrt{4 \pi t}} e^{- \frac{x^2}{4 c^2 t}}
+    ,
+\end{equation*}
+%
+we now use the calculation from part (a) (injecting a $c$ into the
+derivation):
+%
+\begin{align*}
+    &u_t - c^2 u_{x x} = 0 \\
+    &\iff \widehat{u}(k, t) = \widehat{\phi}(k) e^{- c^2 k^2 t} \\
+    &\iff \widehat{u}(k, t) = \widehat{\phi}(k) e^{- c^2 k^2 t} \\
+    &\iff \widehat{u}(k, t) = \widehat{\phi}(k) \widehat{g}(k) \\
+    &\iff \widehat{u}(k, t) = \widehat{\phi}(k) \widehat{g}(k)
+    .
+\end{align*}
+%
+Taking the inverse Fourier transform of both sides we have
+%
+\begin{align*}
+    &u_t - c^2 u_{x x} = 0 \\
+    &\iff \widehat{u}(k, t) = \widehat{\phi}(k) \widehat{g}(k) \\
+    &\iff u(x, t) = \del{\phi * g}(x) \\
+    &\iff u(x, t) = \frac{1}{c \sqrt{4 \pi t}} \int_0^\infty e^{- \frac{\del{x - y}^2}{4 c^2 t}} \phi(y) \dif y
+    .
+\end{align*}
 
 \end{document}
