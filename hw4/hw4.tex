@@ -98,7 +98,66 @@ $f(t) = \sin \omega t$, where $\omega$ is any constant.
 
 \textbf{Solution}
 
-\textit{awesome solution here}
+Recall that the Laplace transform of a function $f$ is defined by
+%
+\begin{equation*}
+    \Lagr \cbr{f}(s) \coloneqq \int_0^\infty f(t) e^{-s t} \dif t
+    .
+\end{equation*}
+%
+Hence for $f_1(t) \equiv 1$ we have
+%
+\begin{align*}
+    \Lagr \cbr{f_1}(s)
+        &= \int_0^\infty f_1(t) e^{-s t} \dif t \\
+        &= \int_0^\infty e^{-s t} \dif t \\
+        &= \lim_{l \to \infty} \int_0^l e^{-s t} \dif t \\
+        &= \lim_{l \to \infty} - \frac{1}{s} \del{e^{-s l} - 1} \\
+        &= \frac{1}{s}
+        .
+\end{align*}
+%
+For $f_2(t) = \sin \omega t$. If $\omega = 0$ then clearly $\Lagr
+\cbr{f_2}(s) = 0$. Now suppose that $\omega \neq 0$. Then we have, using
+integration by parts twice,
+%
+\begin{align*}
+    \Lagr \cbr{f_2}(s)
+        &= \int_0^\infty f_2(t) e^{-s t} \dif t \\
+        &= \int_0^\infty \sin \omega t \, e^{-s t} \dif t \\
+        &= \lim_{l \to \infty} \int_0^l \sin \omega t \, e^{-s t} \dif t \\
+        &= \lim_{l \to \infty}
+            \sbr{
+                - \eval{\del{\frac{e^{-s t} \cos \omega t}{\omega}}}_{t=l}
+                + \eval{\del{\frac{e^{-s t} \cos \omega t}{\omega}}}_{t=0}
+                - \frac{s}{\omega} \int_0^l \cos \omega t \, e^{-s t} \dif t
+            } \\
+        &= \lim_{l \to \infty}
+            \sbr{
+                \frac{1}{\omega}
+                - \frac{s}{\omega} \int_0^l \cos \omega t \, e^{-s t} \dif t
+            } \\
+        &= \frac{1}{\omega}
+            - \frac{s}{\omega} \lim_{l \to \infty} \int_0^l \cos \omega t \, e^{-s t} \dif t \\
+        &= \frac{1}{\omega}
+            - \frac{s}{\omega} \lim_{l \to \infty} \sbr{
+                \eval{\del{\frac{e^{-s t} \sin \omega t}{\omega}}}_{t=l}
+                - \eval{\del{\frac{e^{-s t} \sin \omega t}{\omega}}}_{t=0}
+                + \frac{s}{\omega} \int_0^l \sin \omega t \, e^{-s t} \dif t
+            } \\
+        &= \frac{1}{\omega}
+            - \frac{s^2}{\omega^2} \lim_{l \to \infty} \int_0^l \sin \omega t \, e^{-s t} \dif t \\
+        &= \frac{1}{\omega} - \frac{s^2}{\omega^2} \Lagr \cbr{f_2}(s)
+        .
+\end{align*}
+%
+Hence, it follows that
+%
+\begin{equation*}
+    \Lagr \cbr{f_2}(s)
+        = \frac{\omega}{\omega^2 + s^2}
+        .
+\end{equation*}
 
 \vspace{5mm}
 
@@ -113,7 +172,33 @@ $f(t) = \sin \omega t$, where $\omega$ is any constant.
 
 \textbf{Solution}
 
-\textit{awesome solution here}
+We will show that the first equation holds, and then use the first
+equation to show that the second equation holds. Fix a function $f$.
+Then we have
+%
+\begin{align*}
+    \Lagr \cbr{\dod{f}{t}}(s)
+        &= \int_0^\infty \dod{f}{t}(t) \, e^{-s t} \dif t \\
+        &= \lim_{l \to \infty} \int_0^l \dod{f}{t}(t) \, e^{-s t} \dif t \\
+        &= \lim_{l \to \infty}
+            \sbr{
+                f(l) e^{- s l} - f(0) + s \int_0^l f(t) e^{-s t} \dif t
+            } \\
+        &=  - f(0) + s \int_0^\infty f(t) e^{-s t} \dif t \\
+        &= s \Lagr \cbr{f}(s) - f(0)
+        .
+\end{align*}
+%
+To show that the second equation holds, we have
+%
+\begin{align*}
+    \Lagr \cbr{\dod[2]{f}{t}}(s)
+        &= \Lagr \cbr{\dod{}{t} \del{\dod{f}{t}}}(s) \\
+        &= s \Lagr \cbr{\dod{f}{t}}(s) - f^\prime(0) \\
+        &= s \sbr{s \Lagr \cbr{f}(s) - f(0)} - f^\prime(0) \\
+        &= s^2 \Lagr \cbr{f}(s) - s f(0) - f^\prime(0)
+        .
+\end{align*}
 
 \vspace{5mm}
 
@@ -143,7 +228,68 @@ Show that
 
 \textbf{Solution}
 
-\textit{awesome solution here}
+Starting with the left hand side of the above equation we have
+%
+\begin{align*}
+    \Lagr \cbr{H}(s)
+        &= \int_0^\infty H(t) \, e^{-s t} \dif t \\
+        &= \int_0^\infty
+            \del{\int_0^t g(t - x) f(x) \dif x}
+            \, e^{-s t} \dif t
+            \\
+        &= \int_0^\infty \int_0^t
+            g(t - x) f(x) \, e^{-s t}
+            \dif x \dif t
+            .
+\end{align*}
+%
+Noting that we are integrating in the $x, t$-plane \textit{above} the
+ray $t = x$ extending from the origin, we can change the order of
+integration as follows:
+%
+\begin{align*}
+    \Lagr \cbr{H}(s)
+        &= \int_0^\infty \int_0^t
+            g(t - x) f(x) \, e^{-s t}
+            \dif x \dif t
+            \\
+        &= \int_0^\infty \int_x^\infty
+            g(t - x) f(x) \, e^{-s t}
+            \dif t \dif x
+            .
+\end{align*}
+%
+Then, proceeding, we make the change of variable $y = t - x$ for the
+integral, which gives us
+%
+\begin{align*}
+    \Lagr \cbr{H}(s)
+        &= \int_0^\infty \int_x^\infty
+            g(t - x) f(x) \, e^{-s t}
+            \dif t \dif x
+            \\
+        &= \int_0^\infty \int_0^\infty
+            g(y) f(x) \, e^{-s (y + x)}
+            \dif y \dif x
+            \\
+        &= \int_0^\infty \int_0^\infty
+            g(y) \, e^{-s y} f(x) \, e^{-s x}
+            \dif y \dif x
+            \\
+        &= \del{
+            \int_0^\infty
+            f(x) \, e^{-s x}
+            \dif x
+           }
+           \del{
+            \int_0^\infty
+            g(y) \, e^{-s y}
+            \dif y
+           }
+            \\
+        &= F(s) G(s)
+            .
+\end{align*}
 
 \vspace{5mm}
 
