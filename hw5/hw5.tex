@@ -338,11 +338,35 @@ bounded.
 
 \textbf{Solution}
 
+For any $\xi$, we have
+%
+\begin{align*}
+    \envert{\dod[2]{\widehat{\phi}}{\xi}(\xi)}
+        &= \envert{\int_\mathbb{R} (i x)^2 \phi(x) e^{- x \xi} \dif x} \\
+        &\leq \int_\mathbb{R} \envert{(i x)^2 \phi(x) e^{- x \xi}} \dif x \\
+        &= \int_\mathbb{R} \envert{(i x)^2} \envert{\phi(x)} \envert{e^{- x \xi}} \dif x \\
+        &= \int_\mathbb{R} x^2 \envert{\phi(x)} \dif x \\
+        &< \infty
+        .
+\end{align*}
+%
+Thus $\dod[2]{\widehat{\phi}}{\xi}$ is bounded.
+
 \vspace{5mm}
 
 (c) Let $f(x) = x$ with $x \in \mathbb{R}$. Use test functions to find
 the Fourier transform of $f$ as a tempered distribution.
 
 \textbf{Solution}
+
+Let $F$ be the tempered distribution corresponding to $f$. Fix any
+$\phi \in \mathcal{S}$. Then
+%
+\begin{align*}
+    \langle \widehat{F}, \phi \rangle
+        &\coloneqq \langle F, \widehat{\phi} \rangle \\
+        &= \int_{-\infty}^\infty x \int_{-\infty}^\infty \phi(y) e^{-i x y} \dif y \dif x \\
+        &= \int_{-\infty}^\infty \int_{-\infty}^\infty x \phi(y) e^{-i x y} \dif y \dif x
+\end{align*}
 
 \end{document}
