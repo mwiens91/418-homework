@@ -48,6 +48,56 @@ find the value of u:
 
 \textbf{Solution}
 
+We first apply the Method of Characteristics to \eqref{eq:1} to obtain
+the system of equations
+%
+\begin{equation*}
+    \begin{dcases}
+        \dod{t}{s}= 1, \\
+        \dod{x}{s} = U^2, \\
+        \dod{U}{s} = 0, \\
+        \del{x(0), y(0), U(0)} = \del{0, x_0, \phi(x_0)}
+        .
+    \end{dcases}
+\end{equation*}
+%
+Solving for $t$, we obtain
+%
+\begin{equation*}
+    t(s) = s
+    ,
+\end{equation*}
+%
+and solving for $U$, we get
+%
+\begin{equation*}
+    U(s) = \phi(x_0)
+    .
+\end{equation*}
+%
+Using the solution for $U$, we solve for $x$ as follows:
+%
+\begin{align*}
+    &\dod{x}{s} = U^2 \\
+    &\Rightarrow \dod{x}{s} = \phi(x_0)^2 \\
+    &\Rightarrow x(s) = \phi(x_0)^2 s + x_0
+    .
+\end{align*}
+%
+Given that $u(2, 4) = 1$, we have the characteristic
+%
+\begin{equation*}
+    \begin{dcases}
+        t(s) = s, \\
+        x(s) = s + 2, \\
+        U(s) = 1
+        .
+    \end{dcases}
+\end{equation*}
+%
+This allows us to deduce that \[u(0, 2) = u(1, 3) = 1.\] However we are
+not given enough information to determine $u(2, -2)$ or $u(3, 1)$.
+
 \vspace{5mm}
 
 (b) Consider two initial data:
@@ -67,12 +117,34 @@ the classical sense for all $t > 0$.
 
 \textbf{Solution}
 
+First we will use initial data $\phi \gets \phi_1$. Then our
+characteristics follow
+%
+\begin{equation*}
+    \begin{dcases}
+        t(s) = s, \\
+        x(s) = x_0^2 s + 2, \\
+        U(s) = x_0
+        .
+    \end{dcases}
+\end{equation*}
+
 \newpage
 
 2. (a) State the precise definition of a distribution. Then state the
 precise definition of convergence in the sense of distributions.
 
 \textbf{Solution}
+
+A distribution $F$ is a linear, continuous functional $F:
+C_c^\infty(\mathbb{R}^d) \to \mathbb{R}$. A sequence of distributions
+$\del{F_n}$ converge to a distribution $F$ provided that, for all $\phi
+\in C_c^\infty(\mathbb{R}^d)$
+%
+\begin{equation*}
+    \langle F_n, \phi \rangle \xrightarrow{n \to \infty} \langle F, \phi \rangle
+    .
+\end{equation*}
 
 \vspace{5mm}
 
@@ -113,6 +185,14 @@ distributional solution to \eqref{eq:2c}.
 3. (a) State the definition of a function of the Schwartz class.
 
 \textbf{Solution}
+
+A function $\phi \in C^\infty$ is in the Schwartz class provided that
+%
+\begin{equation*}
+    \lim_{|x| \to \infty} \envert{x^m D_x^\alpha \phi(x)} \to 0
+\end{equation*}
+%
+for all $m \in \mathbb{N}_0$ and all multi-indices $\alpha$.
 
 \vspace{5mm}
 
