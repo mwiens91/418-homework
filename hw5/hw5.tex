@@ -24,6 +24,11 @@
 \fancyhead[R]{\thepage}
 \renewcommand\headrulewidth{0pt}
 
+% Graphics
+\usepackage{float}
+\usepackage{graphicx}
+\graphicspath{ {./plots/img/} }
+
 \begin{document}
 
 \textbf{MATH 418 Homework 5} \\
@@ -128,6 +133,40 @@ characteristics follow
         .
     \end{dcases}
 \end{equation*}
+%
+Plotting the solutions for $s = t = 1$ we see that the characteristics
+overlap and hence a classical solution does not exist in this case.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=10cm]{q1b1}
+\end{figure}
+
+Next we will use initial data $\phi \gets \phi_2$. Then our
+characteristics follow
+%
+\begin{align*}
+    t(s) &= s, \\
+    x(s) &=
+        \begin{dcases}
+            \frac{s}{\del{1 + x_0^2}^2} + x_0, & x_0 \leq 0, \\
+            \del{1 + x_0}^2 s + x_0, & x_0 > 0,
+        \end{dcases} \\
+    U(s) &=
+        \begin{dcases}
+            \frac{1}{1 + x_0^2}, & x_0 \leq 0 \\
+            1 + x_0^2, & x_0 > 0.
+        \end{dcases}
+\end{align*}
+%
+Plotting the solutions for different values of $t$, we see that the
+characteristics will not overlap and hence a classical solution does
+exist in this case.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=10cm]{q1b2}
+\end{figure}
 
 \newpage
 
@@ -366,7 +405,35 @@ $\phi \in \mathcal{S}$. Then
     \langle \widehat{F}, \phi \rangle
         &\coloneqq \langle F, \widehat{\phi} \rangle \\
         &= \int_{-\infty}^\infty x \int_{-\infty}^\infty \phi(y) e^{-i x y} \dif y \dif x \\
-        &= \int_{-\infty}^\infty \int_{-\infty}^\infty x \phi(y) e^{-i x y} \dif y \dif x
+        &= \int_{-\infty}^\infty \int_{-\infty}^\infty x \phi(y) e^{-i x y} \dif y \dif x \\
+        &= i \int_{-\infty}^\infty \int_{-\infty}^\infty \phi(y) \pd{e^{-i x y}}{y} \dif y \dif x \\
+        &= i \int_{-\infty}^\infty
+            \sbr{
+                \lim_{l \to \infty} \del{\phi(l) e^{- i x l} - \phi(-l) e^{i x l}}
+                - \int_{-\infty}^\infty \phi^\prime(y) e^{-i x y} \dif y
+            }
+            \dif x \\
+        &= -i \int_{-\infty}^\infty
+                \int_{-\infty}^\infty \phi^\prime(y) e^{-i x y} \dif y
+            \dif x \\
+        &= -i \int_{-\infty}^\infty \widehat{\phi^\prime}(x) \dif x \\
+        &= -2 \pi i \del{\frac{1}{2 \pi} \int_{-\infty}^\infty \widehat{\phi^\prime}(x) e^{i x \cdot 0} \dif x} \\
+        &= -2 \pi i \phi^\prime(0)
+        ,
 \end{align*}
+%
+where we used
+%
+\begin{align*}
+    \lim_{l \to \infty} |\phi(l) e^{- i x l}|
+        &= \lim_{l \to \infty} |\phi(l)| |e^{- i x l}| \\
+        &= \lim_{l \to \infty} |\phi(l)| \\
+        &= 0
+        ,
+\end{align*}
+%
+which implies that \[\lim_{l \to \infty} \phi(l) e^{- i x l} = 0.\]
+Similarly, we have that \[\lim_{l \to \infty} \phi(-l) e^{i x l} = 0.\]
 
+Hence \[F = 2 \pi i \delta^\prime.\]
 \end{document}
