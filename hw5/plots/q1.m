@@ -22,7 +22,7 @@ title('Solution at t=1');
 % Part (b)
 
 % Functions
-phi = @(x0) (1 ./ (1 + x0).^2) .* (x0 <= 0) + ((1 + x0).^2) .* (x0 > 0);
+phi = @(x0) (1 ./ (1 + x0.^2)) .* (x0 <= 0) + (1 + x0.^2) .* (x0 > 0);
 x2 = @(s, x0) phi(x0).^2 * s + phi(x0);
 U2 = @(x0) phi(x0);
 
@@ -50,4 +50,4 @@ ylabel('u');
 xlim([-2, 20]);
 ylim([-2, 20]);
 title('Solution at different times t');
-legend(strcat('t=', string(ss)));
+legend(strcat('t=', string(ss)), 'location', 'northwest');
