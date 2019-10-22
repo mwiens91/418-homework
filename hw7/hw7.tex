@@ -1,0 +1,148 @@
+% Set up the document
+\documentclass{article}
+
+% Page size
+\usepackage[
+    letterpaper,]{geometry}
+
+% Lines between paragraphs
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{commath}
+
+% Links
+\usepackage{hyperref}
+
+% Page numbers at top right
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\renewcommand\headrulewidth{0pt}
+
+% Theorems
+\newtheorem{theorem}{Theorem}
+
+\begin{document}
+
+\textbf{MATH 418 Homework 7} \\
+\textbf{Matt Wiens \#301294492} \\
+\textbf{2019-11-??}
+
+In this problem you are asked to follow the given steps to prove the
+maximum principle for the heat equation over $\mathbb{R}$ (given a
+certain growth condition).
+
+The full statement of the maximum principle is as follows:
+%
+\begin{theorem}[Maximum Principle]
+    Suppose
+    $u \in C^{2, 1} ([0, T] \times \mathbb{R}) \cap C([0, T] \times \mathbb{R})$
+    solves
+    %
+    \begin{alignat*}{2}
+        u_t &= u_{xx}, &&\quad\text{for } t \in [0, T] \text{ and } x \in \mathbb{R}, \\
+        \eval[0]{u}_{t = 0} &= \phi(x), &&\quad\text{for } x \in \mathbb{R}.
+    \end{alignat*}
+    %
+    where $\phi$ is continuous and bounded on $\mathbb{R}$. Suppose
+    there exists two positive constants $A$, $\alpha$ such that $u$
+    satisfies a growth condition
+    %
+    \begin{equation*}
+        |u(t, x)| \leq A e^{\alpha |x|^2},
+        \quad \text{for all } t \in [0, T] \text{ and } x \in \mathbb{R}
+        .
+    \end{equation*}
+    %
+    Then
+    %
+    \begin{equation}
+        \sup_{[0, T] \times \mathbb{R}} u = \sup_{\mathbb{R}} \phi
+        .
+        \label{eq:2-1}
+    \end{equation}
+\end{theorem}
+%
+(a) First we consider the case where $T$ is small such that
+%
+\begin{equation}
+    4 \alpha T < 1
+    .
+    \label{eq:2-2}
+\end{equation}
+%
+Prove that there exists $\epsilon > 0$ such that
+%
+\begin{equation*}
+    4 \alpha (T + \epsilon) < 1
+    .
+\end{equation*}
+
+\textbf{Solution}
+
+\vspace{5mm}
+
+(b) Construct a function
+%
+\begin{equation*}
+    v(t, x) = u(x, t) - \delta_0 \Phi(t - T - \epsilon, x),
+    \quad t \in [0, T], x \in \mathbb{R}
+    ,
+\end{equation*}
+%
+where $\delta_0 > 0$ is a fixed number and $\Phi$ is the heat kernel.
+Prove that $v$ is a solution to the heat equation in the sense that
+%
+\begin{equation*}
+    v_t = v_{xx},
+    \quad t \in [0, T], x \in \mathbb{R}
+    .
+\end{equation*}
+
+\textbf{Solution}
+
+\vspace{5mm}
+
+(c) Note that the maximum principle now holds for $v$ on the closed
+cylinder $\bar{\Omega}_T = [0, T] \times [-R, R]$. Prove that if $R$ is
+large enough, then
+%
+\begin{equation*}
+    \max_\Omega v = \max_{\Gamma_T} v = \max_{[-R, R]} \phi \leq \sup_\mathbb{R} \phi
+    ,
+\end{equation*}
+%
+where $\Gamma_T$ is the parabolic boundary of $\Omega_T$.
+
+\textbf{Solution}
+
+\vspace{5mm}
+
+(d) Show that (c) implies that
+%
+\begin{equation*}
+    \sup_{[0, T] \times \mathbb{R}} v \leq \sup_\mathbb{R} \phi
+    .
+\end{equation*}
+
+\textbf{Solution}
+
+\vspace{5mm}
+
+(e) Show that \eqref{eq:2-1} holds by letting $\delta_0$ approach zero.
+
+\textbf{Solution}
+
+\vspace{5mm}
+
+(f) In (e) we have shown that the maximum principle assuming
+\eqref{eq:2-1}. Generalize the maximum principle to arbitrary $T > 0$.
+
+\textbf{Solution}
+
+\end{document}
