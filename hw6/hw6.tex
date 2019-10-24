@@ -169,6 +169,70 @@ where
 
 \textbf{Solution}
 
+Recalling that
+%
+\begin{equation*}
+    u(t, x) = \frac{1}{\sqrt{4 \pi t}} \int_0^\infty e^{-\frac{(x - y)^2}{4t }} \dif y
+    .
+\end{equation*}
+%
+Fix any $x$. Then
+%
+\begin{align*}
+    u(t, x)
+        &= \frac{1}{\sqrt{4 \pi t}} \int_0^\infty e^{-\frac{(x - y)^2}{4t}} \dif y \\
+        &\overset{\mathclap{z = x - y}}{=} \quad 
+            - \frac{1}{\sqrt{4 \pi t}} \int_x^{-\infty} e^{-\frac{z^2}{4t}} \dif z \\
+        &\overset{\mathclap{y = \frac{1}{2 \sqrt{t}} z}}{=} \quad
+            - \frac{1}{\sqrt{\pi}} \int_{\frac{x}{2\sqrt{t}}}^{-\infty} e^{-y^2} \dif y \\
+        &= \frac{1}{\sqrt{\pi}} \int_{-\infty}^{\frac{x}{2\sqrt{t}}} e^{-y^2} \dif y
+        .
+\end{align*}
+%
+\textbf{Case 1:} $x > 0$
+
+Then
+%
+\begin{align*}
+    \lim_{t \to 0} u(t, x)
+        &= \lim_{t \to 0} \frac{1}{\sqrt{\pi}} \int_{-\infty}^{\frac{x}{2\sqrt{t}}} e^{-y^2} \dif y \\
+        &= \frac{1}{\sqrt{\pi}} \int_{-\infty}^{\infty} e^{-y^2} \dif y \\
+        &= 1
+        .
+\end{align*}
+%
+\textbf{Case 2:} $x = 0$
+
+Then
+%
+\begin{align*}
+    \lim_{t \to 0} u(t, x)
+        &= \lim_{t \to 0} \frac{1}{\sqrt{\pi}} \int_{-\infty}^0 e^{-y^2} \dif y \\
+        &= \frac{1}{\sqrt{\pi}} \int_{-\infty}^0 e^{-y^2} \dif y \\
+        &= \frac{1}{2 \sqrt{\pi}} \int_{-\infty}^\infty e^{-y^2} \dif y \\
+        &= \frac{1}{2}
+        .
+\end{align*}
+%
+\textbf{Case 3:} $x < 0$
+
+Then
+%
+\begin{align*}
+    \lim_{t \to 0} u(t, x)
+        &= \lim_{t \to 0} \frac{1}{\sqrt{\pi}} \int_{-\infty}^{\frac{x}{2\sqrt{t}}} e^{-y^2} \dif y \\
+        &= \lim_{l \to -\infty} \frac{1}{\sqrt{\pi}} \int_{-\infty}^{l} e^{-y^2} \dif y \\
+        &= 0
+        .
+\end{align*}
+%
+Combining all cases together, we see that
+%
+\begin{equation*}
+    \lim_{t \to 0} u(x, t) = \widetilde{\phi}(x)
+    .
+\end{equation*}
+
 \newpage
 
 2. (a) [9.11.27] Let $\Omega$ be a domain in $\mathbb{R}^3$ and for
