@@ -275,13 +275,13 @@ Using Green's identity, and using that $u$ vanishes on $\partial
 Now, using that $u$ is a solution to the heat equation we have
 %
 \begin{align*}
-    \od{}{t} \iiint_\Omega u^2 \dif x
-        &= \iiint_\Omega \od{}{t} u^2 \dif x \\
+    \dod{}{t} \iiint_\Omega u^2 \dif x
+        &= \iiint_\Omega \dod{}{t} u^2 \dif x \\
         &= \iiint_\Omega 2 u u_t \dif x \\
         &= \iiint_\Omega 2 \alpha  u \Delta u \dif x \\
         &= 2 \alpha \iiint_\Omega u \Delta u \dif x \\
         &\leq 0
-        .
+        ,
 \end{align*}
 %
 where we were able to interchange differentiation and integration in the
@@ -301,5 +301,33 @@ following heat equation has at most one classical solution:
 \end{alignat*}
 
 \textbf{Solution}
+
+Suppose that $u_1$ and $u_2$ are classical solutions to the above heat
+equation. Let $w = u_1 - u_2$. Then $w$ satisfies
+%
+\begin{alignat*}{2}
+    w_t &= w_{x x}, &&\quad (t, x) \in \Omega_T, \\
+    \eval[0]{w}_{t = 0} &= 0, &&\quad x \in [a, b], \\
+    w(t, a) &= 0, &&\quad t \in [0, T], \\
+    w(t, b) &= 0, &&\quad t \in [0, T].
+\end{alignat*}
+%
+We can apply the result from part (a) to give us
+%
+\begin{equation}
+    \od{}{t} \int_a^b [w(t, x)]^2 \dif x \leq 0
+    \label{eq:2-result}
+    .
+\end{equation}
+%
+Then, using \eqref{eq:2-result}, we have
+%
+\begin{equation*}
+    \int_a^b [w(t, x)]^2 \dif x \leq \int_a^b [w(0, x)]^2 \dif x = 0
+    .
+\end{equation*}
+%
+Hence $w = 0$ and thus $u_1 = u_2$. Therefore the heat equation above
+has at most one classical solution.
 
 \end{document}
