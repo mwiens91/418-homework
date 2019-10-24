@@ -60,6 +60,93 @@ integration and differentiation can exchange when needed.
 
 \textbf{Solution}
 
+Here we consider the heat equation
+%
+\begin{equation}
+    u_t - u_{xx} = 0
+    .
+    \label{eq:1-heat}
+\end{equation}
+%
+Using this $\phi$ we have
+%
+\begin{align*}
+    u(t, x)
+        &= \int_0^\infty \Phi(t, x - y) \dif y \\
+        &= \frac{1}{\sqrt{4 \pi t}} \int_0^\infty e^{-\frac{(x - y)^2}{4t }} \dif y
+        .
+\end{align*}
+%
+Note that for any $x$ derivative of any order $k$ we have
+%
+\begin{align*}
+    \partial_x^k u(t, x)
+        &= \partial_x^k \sbr{\frac{1}{\sqrt{4 \pi t}} \int_0^\infty e^{-\frac{(x - y)^2}{4t }} \dif y} \\
+        &= \frac{1}{\sqrt{4 \pi t}} \, \partial_x^k \sbr{\int_0^\infty e^{-\frac{(x - y)^2}{4t }} \dif y} \\
+        &= \frac{1}{\sqrt{4 \pi t}} \int_0^\infty \partial_x^k \sbr{ e^{-\frac{(x - y)^2}{4t }} } \dif y
+        .
+\end{align*}
+%
+This is valid since functions of the form
+$e^{\alpha (x - \beta)^2} \in C^\infty$ for constants $\alpha, \beta$.
+Hence $u$ is $C^\infty$ in $x$.
+
+Now, for any $t$ derivative of any order $k$ we have
+%
+\begin{align*}
+    \partial_t^k u(t, x)
+        &= \partial_t^k \sbr{\frac{1}{\sqrt{4 \pi t}} \int_0^\infty e^{-\frac{(x - y)^2}{4t }} \dif y} \\
+        &= \sum_{i = 0}^k \binom{k}{i} \partial_t^i \sbr{\frac{1}{\sqrt{4 \pi t}}} \partial_t^{k - i} \sbr{\int_0^\infty e^{-\frac{(x - y)^2}{4t }} \dif y} \\
+        &= \sum_{i = 0}^k \binom{k}{i} \partial_t^i \sbr{\frac{1}{\sqrt{4 \pi t}}} \int_0^\infty \partial_t^{k - i} \sbr{e^{-\frac{(x - y)^2}{4t}}} \dif y
+        ,
+\end{align*}
+%
+which is valid because functions of the form
+$\frac{1}{\sqrt{t}}, e^{\frac{\alpha}{t}} \in C^\infty$ for any constant
+$\alpha$. Hence $u$ is $C^\infty$ in $t$ as well as $x$.
+
+To show that $u$ satisfies \eqref{eq:1-heat}, we calculate
+%
+\begin{align*}
+    u_t
+        &= \partial_t \sbr{\frac{1}{\sqrt{4 \pi t}} \int_0^\infty e^{-\frac{(x - y)^2}{4t }} \dif y} \\
+        &= \partial_t \sbr{\frac{1}{\sqrt{4 \pi t}}} \int_0^\infty e^{-\frac{(x - y)^2}{4t }} \dif y
+            + \frac{1}{\sqrt{4 \pi t}} \int_0^\infty \partial_t \sbr{e^{-\frac{(x - y)^2}{4t }}} \dif y \\
+        &= - \frac{1}{2t} u + \frac{1}{\sqrt{4 \pi t}} \int_0^\infty \frac{(x - y)^2}{4t^2} e^{-\frac{(x - y)^2}{4t }} \dif y
+        ,
+\end{align*}
+%
+and
+%
+\begin{align*}
+    u_{xx}
+        &= \partial_{xx} \sbr{\frac{1}{\sqrt{4 \pi t}} \int_0^\infty e^{-\frac{(x - y)^2}{4t}} \dif y} \\
+        &= \frac{1}{\sqrt{4 \pi t}} \int_0^\infty \partial_{xx} \sbr{e^{-\frac{(x - y)^2}{4t}}} \dif y
+        .
+\end{align*}
+%
+Since
+%
+\begin{align*}
+    \partial_{xx} \sbr{e^{-\frac{(x - y)^2}{4t}}}
+        &= - \partial_x \sbr{\frac{(x - y)}{2t} e^{-\frac{(x - y)^2}{4t}}} \\
+        &= - \frac{1}{2t} e^{-\frac{(x - y)^2}{4t}} + \frac{(x - y)^2}{4 t^2} e^{-\frac{(x - y)^2}{4t}}
+        ,
+\end{align*}
+%
+we have
+%
+\begin{align*}
+    u_{xx}
+        &= \frac{1}{\sqrt{4 \pi t}} \int_0^\infty \del{
+            - \frac{1}{2t} e^{-\frac{(x - y)^2}{4t}} + \frac{(x - y)^2}{4 t^2} e^{-\frac{(x - y)^2}{4t}}
+           } \dif y \\
+        &= - \frac{1}{2t} u + \frac{1}{\sqrt{4 \pi t}} \int_0^\infty \frac{(x - y)^2}{4t^2} e^{-\frac{(x - y)^2}{4t}} \dif y
+        .
+\end{align*}
+%
+Thus we see that $u_t = u_{xx}$ and hence \eqref{eq:1-heat} is satisfied.
+
 \vspace{5mm}
 
 (b) Prove that for each $x \in \mathbb{R}$
