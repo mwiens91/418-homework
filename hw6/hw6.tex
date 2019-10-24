@@ -262,6 +262,31 @@ Prove that for all $t \in [0, T]$,
 
 \textbf{Solution}
 
+Using Green's identity, and using that $u$ vanishes on $\partial
+\Omega$, we have
+%
+\begin{align*}
+    \iiint_\Omega u \Delta u \dif x
+        &= - \iiint_\Omega \nabla u \cdot \nabla u \dif x \\
+        &\leq 0
+        .
+\end{align*}
+%
+Now, using that $u$ is a solution to the heat equation we have
+%
+\begin{align*}
+    \od{}{t} \iiint_\Omega u^2 \dif x
+        &= \iiint_\Omega \od{}{t} u^2 \dif x \\
+        &= \iiint_\Omega 2 u u_t \dif x \\
+        &= \iiint_\Omega 2 \alpha  u \Delta u \dif x \\
+        &= 2 \alpha \iiint_\Omega u \Delta u \dif x \\
+        &\leq 0
+        .
+\end{align*}
+%
+where we were able to interchange differentiation and integration in the
+above equation by noting that $u$ is bounded by the maximum principle.
+
 \vspace{5mm}
 
 (b) Use the result in part (a) to prove the uniqueness of the classical
