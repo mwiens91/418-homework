@@ -207,12 +207,51 @@ $u \in C^{1, 2}((0, T) \times (a, b)) \cap C([0, T] \times [a, b])$ and satisfie
 Use a similar argument to what we used in class to show that if
 $\psi_a, \psi_b, h$ are all non-negative functions, then
 %
-\begin{align*}
+\begin{equation*}
     u(t, x) \geq 0 \quad \text{on } [0, T] \times [a, b]
     .
-\end{align*}
+\end{equation*}
 
 \textbf{Solution}
+
+First suppose that $\psi_a, \psi_b, h$ are all non-negative. Denote
+\[\Omega_T = (0, T) \times (a, b)\] and let
+%
+\begin{equation*}
+    \Gamma_T = \cbr{(t, a): t \in [0, T]}
+                \cup \cbr{(t, b): t \in [0, T]}
+                \cup \cbr{(x, 0): x \in [a, b]}
+    .
+\end{equation*}
+%
+Note that, given the boundary constraints we are given that
+%
+\begin{equation*}
+    \min_{\Gamma_T} u(t, x)
+        = \min \cbr{
+            \min_{[0, T]} \phi_a(t), \,
+            \min_{[0, T]} \phi_b(t), \,
+            \min_{[a, b]} h(x)
+          }
+        \geq 0
+        .
+\end{equation*}
+%
+Hence, using the maximum principle, we have
+%
+\begin{equation*}
+    \min_{\bar{\Omega}_T} u(t, x) = \min_{\Gamma_T} u(t, x) \geq 0
+    .
+\end{equation*}
+%
+Thus it follows that
+%
+\begin{equation*}
+    u(t, x) \geq 0 \quad \text{on } \bar{\Omega}_T
+    ,
+\end{equation*}
+%
+which is what we wanted to show.
 
 \newpage
 
