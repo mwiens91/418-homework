@@ -55,6 +55,52 @@ discontinuity does it have at $(0, 0)$?
 
 \textbf{Solution}
 
+First we calculate $u_t$ and $u_{xx}$ for $0 < x < \infty, t > 0$:
+%
+\begin{align*}
+    u_t &= \frac{x^3 e^{-\frac{-x^2}{4 t}}}{4 t^{\frac{7}{2}}}
+            - \frac{3 x e^{-\frac{-x^2}{4 t}}}{2 t^{\frac{5}{2}}} \\
+        &= \frac{x^2}{4 t^2} u - \frac{3}{2 t} u
+        ;
+\end{align*}
+%
+\begin{align*}
+    u_{xx}
+        &= \dpd{}{x} \sbr{
+            \frac{e^{-\frac{-x^2}{4 t}}}{t^{\frac{3}{2}}}
+            - \frac{x^2 e^{-\frac{-x^2}{4 t}}}{2 t^{\frac{5}{2}}}
+        } \\
+        &= - \frac{x e^{-\frac{-x^2}{4 t}}}{2 t^{\frac{5}{2}}}
+            - \del{
+                \frac{x e^{-\frac{-x^2}{4 t}}}{t^{\frac{5}{2}}}
+                - \frac{x^3 e^{-\frac{-x^2}{4 t}}}{4 t^{\frac{7}{2}}}
+              } \\
+        &= - \frac{1}{2 t} u - \frac{1}{t} u + \frac{x^2}{4 t^2} u \\
+        &= \frac{x^2}{4 t^2} u - \frac{3}{2 t} u
+        .
+\end{align*}
+%
+Clearly we have that $u_t = u_{xx}$ for $0 < x < \infty, t > 0$. Now for
+all $t > 0$,
+%
+\begin{equation*}
+    u(0, t) = \frac{0}{t^{3/2}} e^{- \frac{0^2}{4 t}} = 0
+    .
+\end{equation*}
+%
+For all $x > 0$ we have that
+%
+\begin{equation*}
+    \lim_{t \to 0^+} u(x, t)
+        = \lim_{t \to 0^+} \frac{x}{t^{3/2}} e^{- \frac{x^2}{4 t}} \\
+        = 0
+        ,
+\end{equation*}
+%
+and hence, in the limiting sense, $u(x, 0) = 0$ is satisfied. However,
+taking the limit $x \to 0^+$ and $t \to 0^+$ is clearly not
+well-defined, and hence an essential discontinuity arises at $(0, 0)$.
+
 \vspace{5mm}
 
 [9.11.20] For each $n$ consider the functions
@@ -70,6 +116,81 @@ the values of $u_n(x, -1)$ as $n \to \infty$? Make some conclusions with
 regard to stability.
 
 \textbf{Solution}
+
+Here the diffusion equation we consider is
+%
+\begin{equation}
+    u_t = u_{xx}
+    .
+    \label{eq:1-heat-eqn}
+\end{equation}
+%
+For any $n \in \mathbb{N}$, we have
+%
+\begin{align*}
+    \partial_t u_n
+        &= \partial_t \sbr{\frac{\sin(n x)}{n} e^{-n^2 t}} \\
+        &= - n e^{-n^2 t} \sin(n x)
+        ;
+\end{align*}
+%
+and also
+%
+\begin{align*}
+    \partial_{xx} u_n
+        &= \partial_{xx} \sbr{\frac{\sin(n x)}{n} e^{-n^2 t}} \\
+        &= - n e^{-n^2 t} \sin(n x)
+        .
+\end{align*}
+%
+Hence $\partial_t u_n = \partial_{xx} u_n$ and thus $u_n$ satisfies
+\eqref{eq:1-heat-eqn}.
+
+Now,
+%
+\begin{equation*}
+    u_n(x, -1) = \frac{\sin(n x)}{n} e^{n^2}
+    .
+\end{equation*}
+%
+If w take the limit $n \to \infty$ then we have three cases:
+
+\textbf{Case 1:} $\sin(n x) = a > 0$
+
+Then
+%
+\begin{equation*}
+    \lim_{n \to \infty} u_n(x, -1)
+        = \lim_{n \to \infty} \frac{a}{n} e^{n^2}
+        = \infty
+    .
+\end{equation*}
+
+\textbf{Case 2:} $\sin(n x) = 0$
+
+Then
+%
+\begin{equation*}
+    \lim_{n \to \infty} u_n(x, -1)
+        = \lim_{n \to \infty} \frac{0}{n} e^{n^2}
+        = 0
+    .
+\end{equation*}
+
+\textbf{Case 3:} $\sin(n x) = a < 0$
+
+Then
+%
+\begin{equation*}
+    \lim_{n \to \infty} u_n(x, -1)
+        = \lim_{n \to \infty} \frac{a}{n} e^{n^2}
+        = - \infty
+    .
+\end{equation*}
+%
+Since the period in $x$ of the solution $\frac{2 \pi}{n}$ gets
+infinitely small in the limit $n \to \infty$, we can see that the
+solution is highly unstable in this limit for $t < 0$.
 
 \newpage
 
