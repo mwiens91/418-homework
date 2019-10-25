@@ -31,9 +31,71 @@
 
 \textbf{MATH 418 Homework 7} \\
 \textbf{Matt Wiens \#301294492} \\
-\textbf{2019-11-??}
+\textbf{2019-11-01}
 
-In this problem you are asked to follow the given steps to prove the
+1. [9.11.10] Consider the diffusion equation on the half line with
+Dirichlet boundary conditions:
+%
+\begin{equation*}
+    \begin{cases}
+        u_t = u_{xx}, & 0 < x < \infty, t > 0, \\
+        u(0, t) = 0, & t > 0, \\
+        u(x, 0) = 0, & x \geq 0.
+    \end{cases}
+\end{equation*}
+%
+Clearly $u(x, t) \equiv 0$ is a solution to this problem. Show that
+%
+\begin{equation*}
+    u(x, t) = \frac{x}{t^{3/2}} e^{- \frac{x^2}{4 t}}
+\end{equation*}
+%
+is also a solution except at $x = 0$, $t = 0$. What type of
+discontinuity does it have at $(0, 0)$?
+
+\textbf{Solution}
+
+\vspace{5mm}
+
+[9.11.20] For each $n$ consider the functions
+%
+\begin{equation*}
+    u_n(x, t) = \frac{\sin n x}{n} e^{-n^2 t}
+    .
+\end{equation*}
+%
+Check that for each $n$, $u_n$ solves the diffusion equation ($c = 1$)
+for all $x \in \mathbb{R}$ and all $t \in \mathbb{R}$. What happens to
+the values of $u_n(x, -1)$ as $n \to \infty$? Make some conclusions with
+regard to stability.
+
+\textbf{Solution}
+
+\newpage
+
+2. Suppose
+$u \in C^{1, 2}((0, T) \times (a, b)) \cap C([0, T] \times [a, b])$ and satisfies
+%
+\begin{align*}
+    u_t = u_{xx} - 2u^3, &\qquad (t, x) \in (0, T) \times (a, b), \\
+    u(t, a) = \psi_a(t), &\qquad t \in (0, T), \\
+    u(t, b) = \psi_b(t), &\qquad t \in (0, T), \\
+    u(0, x) = h(x), &\qquad x \in [a, b].
+\end{align*}
+%
+Use a similar argument to what we used in class to show that if
+$\psi_a, \psi_b, h$ are all non-negative functions, then
+%
+\begin{align*}
+    u(t, x) \geq 0 \quad \text{on } [0, T] \times [a, b]
+    .
+\end{align*}
+
+\textbf{Solution}
+
+\newpage
+
+3. In this problem you are asked to follow the given steps to prove the
 maximum principle for the heat equation over $\mathbb{R}$ (given a
 certain growth condition).
 
