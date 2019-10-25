@@ -307,12 +307,33 @@ Prove that there exists $\epsilon > 0$ such that
 
 \textbf{Solution}
 
+Fix $c > 0$ such that
+%
+\begin{equation*}
+    4 \alpha T + 4 \alpha c = 1
+    .
+\end{equation*}
+%
+Then, taking $\epsilon = \frac{c}{2}$, we have
+%
+\begin{align*}
+    4 \alpha (T + \epsilon)
+        &= 4 \alpha \del{T + \frac{c}{2}} \\
+        &= 4 \alpha T + 2 \alpha c \\
+        &< 4 \alpha T + 4 \alpha c \\
+        &= 1
+    ,
+\end{align*}
+%
+and hence there exists $\epsilon > 0$ such that
+$4 \alpha (T + \epsilon) < 1$.
+
 \vspace{5mm}
 
 (b) Construct a function
 %
 \begin{equation*}
-    v(t, x) = u(x, t) - \delta_0 \Phi(t - T - \epsilon, x),
+    v(t, x) = u(t, x) - \delta_0 \Phi(t - T - \epsilon, x),
     \quad t \in [0, T], x \in \mathbb{R}
     ,
 \end{equation*}
@@ -327,6 +348,55 @@ Prove that $v$ is a solution to the heat equation in the sense that
 \end{equation*}
 
 \textbf{Solution}
+
+We calculate, that, for any $t \in [0, T], x \in \mathbb{R}$,
+%
+\begin{align*}
+    v_t &= \partial_t \sbr{u(t, x) - \delta_0 \Phi(t - T - \epsilon, x)} \\
+        &= u_t - \delta_0 \partial_t
+            \sbr{
+                \frac{1}{\sqrt{4 \pi (t - T - \epsilon)}}
+                e^{- \frac{x^2}{4 (t - T - \epsilon)}}
+            } \\
+        &= u_t - \delta_0
+            \del{
+                \frac{x^2}{4 (t - T - \epsilon)^2} \Phi(t - T - \epsilon, x)
+                - \frac{1}{2 (t - T - \epsilon)} \Phi(t - T - \epsilon, x)
+            }
+        ;
+\end{align*}
+%
+and
+%
+\begin{align*}
+    v_{xx} &= \partial_{xx} \sbr{u(t, x) - \delta_0 \Phi(t - T - \epsilon, x)} \\
+           &= u_{xx} - \delta_0 \partial_{xx}
+            \sbr{
+                \frac{1}{\sqrt{4 \pi (t - T - \epsilon)}}
+                e^{- \frac{x^2}{4 (t - T - \epsilon)}}
+            } \\
+           &= u_{xx} - \delta_0 \partial_x
+            \sbr{
+                - \frac{x}{2 (t - T - \epsilon) \sqrt{4 \pi (t - T - \epsilon)}}
+                e^{- \frac{x^2}{4 (t - T - \epsilon)}}
+            } \\
+           &= u_{xx} \\
+           &\quad - \delta_0
+            \del{
+                \frac{x^2}{4 (t - T - \epsilon)^2 \sqrt{4 \pi (t - T - \epsilon)}}
+                e^{- \frac{x^2}{4 (t - T - \epsilon)}}
+                - \frac{1}{2 (t - T - \epsilon) \sqrt{4 \pi (t - T - \epsilon)}}
+                e^{- \frac{x^2}{4 (t - T - \epsilon)}}
+            } \\
+           &= u_{xx} - \delta_0
+            \del{
+                \frac{x^2}{4 (t - T - \epsilon)^2} \Phi(t - T - \epsilon, x)
+                - \frac{1}{2 (t - T - \epsilon)} \Phi(t - T - \epsilon, x)
+            }
+        .
+\end{align*}
+%
+Noting that $u_t = u_{xx}$, we see that $v_t = v_{xx}$.
 
 \vspace{5mm}
 
