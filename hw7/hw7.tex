@@ -333,12 +333,20 @@ $4 \alpha (T + \epsilon) < 1$.
 (b) Construct a function
 %
 \begin{equation*}
-    v(t, x) = u(t, x) - \delta_0 \Phi(t - T - \epsilon, x),
+    v(t, x) = u(t, x) - \delta_0 \Phi_0(t - T - \epsilon, x),
     \quad t \in [0, T], x \in \mathbb{R}
     ,
 \end{equation*}
 %
-where $\delta_0 > 0$ is a fixed number and $\Phi$ is the heat kernel.
+where $\delta_0 > 0$ is a fixed number and $\Phi_0$ is given by
+%
+\begin{equation*}
+    \Phi_0(t - T - \epsilon)
+        = \frac{1}{\sqrt{4 \pi (- t + T + \epsilon)}}
+            e^{- \frac{x^2}{4 (t - T - \epsilon)}}
+        .
+\end{equation*}
+%
 Prove that $v$ is a solution to the heat equation in the sense that
 %
 \begin{equation*}
@@ -352,16 +360,16 @@ Prove that $v$ is a solution to the heat equation in the sense that
 We calculate, that, for any $t \in [0, T], x \in \mathbb{R}$,
 %
 \begin{align*}
-    v_t &= \partial_t \sbr{u(t, x) - \delta_0 \Phi(t - T - \epsilon, x)} \\
+    v_t &= \partial_t \sbr{u(t, x) - \delta_0 \Phi_0(t - T - \epsilon, x)} \\
         &= u_t - \delta_0 \partial_t
             \sbr{
-                \frac{1}{\sqrt{4 \pi (t - T - \epsilon)}}
+                \frac{1}{\sqrt{4 \pi (- t + T + \epsilon)}}
                 e^{- \frac{x^2}{4 (t - T - \epsilon)}}
             } \\
         &= u_t - \delta_0
             \del{
-                \frac{x^2}{4 (t - T - \epsilon)^2} \Phi(t - T - \epsilon, x)
-                - \frac{1}{2 (t - T - \epsilon)} \Phi(t - T - \epsilon, x)
+                \frac{x^2}{4 (t - T - \epsilon)^2} \Phi_0(t - T - \epsilon, x)
+                + \frac{1}{2 (-t + T + \epsilon)} \Phi_0(t - T - \epsilon, x)
             }
         ;
 \end{align*}
@@ -369,29 +377,34 @@ We calculate, that, for any $t \in [0, T], x \in \mathbb{R}$,
 and
 %
 \begin{align*}
-    v_{xx} &= \partial_{xx} \sbr{u(t, x) - \delta_0 \Phi(t - T - \epsilon, x)} \\
+    v_{xx} &= \partial_{xx} \sbr{u(t, x) - \delta_0 \Phi_0(t - T - \epsilon, x)} \\
            &= u_{xx} - \delta_0 \partial_{xx}
             \sbr{
-                \frac{1}{\sqrt{4 \pi (t - T - \epsilon)}}
+                \frac{1}{\sqrt{4 \pi (-t + T + \epsilon)}}
                 e^{- \frac{x^2}{4 (t - T - \epsilon)}}
             } \\
            &= u_{xx} - \delta_0 \partial_x
             \sbr{
-                - \frac{x}{2 (t - T - \epsilon) \sqrt{4 \pi (t - T - \epsilon)}}
+                - \frac{x}{2 (t - T - \epsilon) \sqrt{4 \pi (-t + T + \epsilon)}}
                 e^{- \frac{x^2}{4 (t - T - \epsilon)}}
             } \\
            &= u_{xx} \\
            &\quad - \delta_0
             \del{
-                \frac{x^2}{4 (t - T - \epsilon)^2 \sqrt{4 \pi (t - T - \epsilon)}}
+                \frac{x^2}{4 (t - T - \epsilon)^2 \sqrt{4 \pi (-t + T + \epsilon)}}
                 e^{- \frac{x^2}{4 (t - T - \epsilon)}}
-                - \frac{1}{2 (t - T - \epsilon) \sqrt{4 \pi (t - T - \epsilon)}}
+                - \frac{1}{2 (t - T - \epsilon) \sqrt{4 \pi (-t + T + \epsilon)}}
                 e^{- \frac{x^2}{4 (t - T - \epsilon)}}
             } \\
            &= u_{xx} - \delta_0
             \del{
                 \frac{x^2}{4 (t - T - \epsilon)^2} \Phi(t - T - \epsilon, x)
                 - \frac{1}{2 (t - T - \epsilon)} \Phi(t - T - \epsilon, x)
+            } \\
+           &= u_{xx} - \delta_0
+            \del{
+                \frac{x^2}{4 (t - T - \epsilon)^2} \Phi(t - T - \epsilon, x)
+                + \frac{1}{2 (-t + T + \epsilon)} \Phi(t - T - \epsilon, x)
             }
         .
 \end{align*}
@@ -405,7 +418,7 @@ cylinder $\bar{\Omega}_T = [0, T] \times [-R, R]$. Prove that if $R$ is
 large enough, then
 %
 \begin{equation*}
-    \max_\Omega v = \max_{\Gamma_T} v = \max_{[-R, R]} \phi \leq \sup_\mathbb{R} \phi
+    \max_{\bar{\Omega}_T} v = \max_{\Gamma_T} v = \max_{[-R, R]} \phi \leq \sup_\mathbb{R} \phi
     ,
 \end{equation*}
 %
