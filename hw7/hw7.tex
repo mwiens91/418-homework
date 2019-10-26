@@ -261,7 +261,7 @@ certain growth condition).
 
 The full statement of the maximum principle is as follows:
 %
-\begin{theorem}[Maximum Principle]
+\begin{theorem}
     Suppose
     $u \in C^{2, 1} ([0, T] \times \mathbb{R}) \cap C([0, T] \times \mathbb{R})$
     solves
@@ -341,7 +341,7 @@ $4 \alpha (T + \epsilon) < 1$.
 where $\delta_0 > 0$ is a fixed number and $\Phi_0$ is given by
 %
 \begin{equation*}
-    \Phi_0(t - T - \epsilon)
+    \Phi_0(t - T - \epsilon, x)
         = \frac{1}{\sqrt{4 \pi (- t + T + \epsilon)}}
             e^{- \frac{x^2}{4 (t - T - \epsilon)}}
         .
@@ -425,6 +425,27 @@ large enough, then
 where $\Gamma_T$ is the parabolic boundary of $\Omega_T$.
 
 \textbf{Solution}
+
+The first equality
+%
+\begin{equation*}
+    \max_{\bar{\Omega}_T} v = \max_{\Gamma_T} v
+\end{equation*}
+%
+is guaranteed by the maximum principle, which we can use since we showed
+that $v$ satisfies the heat equation; and the equality
+%
+\begin{equation*}
+    \max_{[-R, R]} \phi \leq \sup_\mathbb{R} \phi
+\end{equation*}
+%
+is trivially satisfied. Hence we only need to show that
+%
+\begin{equation*}
+    \max_{\Gamma_T} v = \max_{[-R, R]} \phi
+    .
+\end{equation*}
+%
 
 \vspace{5mm}
 
