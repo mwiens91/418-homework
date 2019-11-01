@@ -1,0 +1,151 @@
+% Set up the document
+\documentclass{article}
+
+% Page size
+\usepackage[
+    letterpaper,]{geometry}
+
+% Lines between paragraphs
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{commath}
+
+% Links
+\usepackage{hyperref}
+
+% Page numbers at top right
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\renewcommand\headrulewidth{0pt}
+
+\begin{document}
+
+\textbf{MATH 418 Homework 8} \\
+\textbf{Matt Wiens \#301294492} \\
+\textbf{2019-11-08}
+
+1. [10.8.2] (a) Let $x = (x_1, x_2, x_3)$ and consider the function
+defined for $x \neq 0$,
+%
+\begin{equation*}
+    u(x) = \frac{1}{|x|}
+    .
+\end{equation*}
+%
+Show by direct differentiation that for $x \neq 0$,
+%
+\begin{equation*}
+    \Delta u(x) = 0
+    .
+\end{equation*}
+
+\textbf{Solution}
+
+\vspace{5mm}
+
+(b) Now consider the same function $\frac{1}{|x|}$ where $x \in
+\mathbb{R}^2$. Show that for $x \neq 0$,
+%
+\begin{equation*}
+    \Delta u(x) \neq 0
+    .
+\end{equation*}
+
+\textbf{Solution}
+
+\vspace{5mm}
+
+[10.8.6] Suppose that $u(r, \theta)$ is a harmonic function in the disk
+with centre at the origin and radius $2$ and that on the boundary $r =
+2$ we have $u = 3 \sin (2 \theta) + 1$. Without finding the solution,
+answer the following questions:
+
+(a) What is the maximum value of $u$ on the closed disk $\cbr{(r,
+\theta) : r \leq 2}$?
+
+\textbf{Solution}
+
+\vspace{5mm}
+
+(b) What is the value of $u$ at the origin?
+
+\textbf{Solution}
+
+\vspace{5mm}
+
+[10.8.7] Let $\Delta u(x) = 0$ for $x$ in the plane (i.e, $u$ is
+harmonic everywhere). Suppose $|u|$ is bounded; i.e., there exists a
+constant $M > 0$ such that $|u(x)| \leq M$ for all $x$. Prove that $u$
+must be constant. Interpret this when $u$ represents the temperature at
+a point $x$ in the plane.
+
+\textbf{Solution}
+
+\newpage
+
+2. We say $v \in C^2(\bar \Omega)$ is subharmonic if
+%
+\begin{equation*}
+    - \Delta v \leq 0 \qquad \text{in } \Omega
+    .
+\end{equation*}
+%
+Suppose $v$ is subharmonic.
+
+(a) Prove that
+%
+\begin{equation*}
+    v(x_0) \leq \frac{1}{\envert{B\del{x_0, r}}} \int_{B(x_0, r)} v(y) \dif y
+\end{equation*}
+%
+for all $B(x_0, r) \subseteq \Omega$.
+
+\textbf{Solution}
+
+\vspace{5mm}
+
+(b) Prove that $\max\limits_{\bar{\Omega}} v = \max\limits_{\partial \Omega} v$.
+
+\textbf{Solution}
+
+\vspace{5mm}
+
+(c) Give a counterexample to show that the following may not hold:
+%
+\begin{equation*}
+    \min_{\bar \Omega} v = \min_{\del\Omega} v
+    .
+\end{equation*}
+
+\newpage
+
+3. Let $x \in \mathbb{R}^d$ and $r = |x|$. Then, show the following:
+
+(a) $\nabla |x| = \frac{x}{|x|}$.
+
+\textbf{Solution}
+
+\vspace{5mm}
+
+(b) If $u(x) = U(r)$, then
+%
+\begin{equation*}
+    \Delta u = U^{\prime \prime}(r) + \frac{d - 1}{r} U^\prime(r).
+\end{equation*}
+
+\textbf{Solution}
+
+\vspace{5mm}
+
+(c) Let $\Phi(x) = \frac{1}{|x|^{d-2}}$. Then $\Delta \Phi(x)$ is not
+integrable on $B(0, 1)$.
+
+\textbf{Solution}
+
+\end{document}
