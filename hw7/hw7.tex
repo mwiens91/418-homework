@@ -112,6 +112,7 @@ well-defined, and hence an essential discontinuity arises at $(0, 0)$.
 %
 Check that for each $n$, $u_n$ solves the diffusion equation ($c = 1$)
 for all $x \in \mathbb{R}$ and all $t \in \mathbb{R}$. What happens to
+the values of $u_n(x, 0)$ as $n \to \infty$? What happens to
 the values of $u_n(x, -1)$ as $n \to \infty$? Make some conclusions with
 regard to stability.
 
@@ -146,14 +147,45 @@ and also
 Hence $\partial_t u_n = \partial_{xx} u_n$ and thus $u_n$ satisfies
 \eqref{eq:1-heat-eqn}.
 
-Now,
+For the first limit in this question,
+%
+\begin{equation*}
+    u_n(x, 0) = \frac{\sin(n x)}{n}
+    .
+\end{equation*}
+%
+Noting that
+%
+\begin{equation*}
+    - \frac{1}{n} \leq \frac{\sin(n x)}{n} \leq \frac{1}{n}
+    ,
+\end{equation*}
+%
+we have that
+%
+\begin{align*}
+    &\lim_{n \to \infty} \del{- \frac{1}{n}}
+    \leq \lim_{n \to \infty} \frac{\sin(n x)}{n}
+    \leq \lim_{n \to \infty} \frac{1}{n} \\
+    &\iff 0 \leq \lim_{n \to \infty} \frac{\sin(n x)}{n} \leq 0
+    .
+\end{align*}
+%
+Hence,
+%
+\begin{equation*}
+    \lim_{n \to \infty} u_n(x, 0) = \lim_{n \to \infty} \frac{\sin(n x)}{n} = 0
+    .
+\end{equation*}
+%
+For the second limit in this question,
 %
 \begin{equation*}
     u_n(x, -1) = \frac{\sin(n x)}{n} e^{n^2}
     .
 \end{equation*}
 %
-If w take the limit $n \to \infty$ then we have three cases:
+If we take the limit $n \to \infty$ then we have three cases:
 
 \textbf{Case 1:} $\sin(n x) = a > 0$
 
@@ -190,7 +222,7 @@ Then
 %
 Since the period in $x$ of the solution $\frac{2 \pi}{n}$ gets
 infinitely small in the limit $n \to \infty$, we can see that the
-solution is highly unstable in this limit for $t < 0$.
+values are highly unstable in this limit for $t < 0$.
 
 \newpage
 
