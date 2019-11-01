@@ -224,7 +224,7 @@ First suppose that $\psi_a, \psi_b, h$ are all non-negative. Denote
     .
 \end{equation*}
 %
-Note that, given the boundary constraints we are given that
+Note that, given the boundary constraints, we have
 %
 \begin{equation*}
     \min_{\Gamma_T} u(t, x)
@@ -433,7 +433,7 @@ The first equality
 \end{equation*}
 %
 is guaranteed by the maximum principle, which we can use since we showed
-that $v$ satisfies the heat equation; and the equality
+that $v$ satisfies the heat equation; and the inequality
 %
 \begin{equation*}
     \max_{[-R, R]} \phi \leq \sup_\mathbb{R} \phi
@@ -446,6 +446,52 @@ is trivially satisfied. Hence we only need to show that
     .
 \end{equation*}
 %
+Suppose there exist positive constants $A, \alpha$ such that
+%
+\begin{equation*}
+    |u(t, x)| \leq A e^{\alpha x^2},
+    \quad \text{for all } t \in [0, T] \text{ and } x \in \mathbb{R}
+    .
+\end{equation*}
+%
+Further suppose that $4 \alpha T < 1$. Then, by part (a) there exists
+$\epsilon > 0$ such that $4 \alpha (T + \epsilon) < 1$. Define $c
+\coloneqq 4 \alpha (T + \epsilon) < 1$. Then
+%
+\begin{align*}
+    v(t, x)
+        &= u(t, x) - \delta_0 \Phi_0(t - T - \epsilon, x) \\
+        &= u(t, x) - \delta_0
+            \frac{1}{\sqrt{4 \pi (- t + T + \epsilon)}}
+            e^{- \frac{x^2}{4 (t - T - \epsilon)}} \\
+        &\leq A e^{\alpha x^2} - \delta_0
+            \frac{1}{\sqrt{4 \pi (- t + T + \epsilon)}}
+            e^{- \frac{x^2}{4 (t - T - \epsilon)}} \\
+        &= A e^{\alpha x^2} - \delta_0
+            \frac{1}{\sqrt{4 \pi (- t + T + \epsilon)}}
+            e^{\frac{x^2}{4 (-t + T + \epsilon)}} \\
+        &\leq A e^{\alpha x^2} - \delta_0
+            \frac{1}{\sqrt{4 \pi (T + \epsilon)}}
+            e^{\frac{x^2}{4 (T + \epsilon)}} \\
+        &= A e^{\alpha x^2} - \frac{\delta_0}{\sqrt{c}} e^{\frac{x^2}{c}}
+        .
+\end{align*}
+%
+Since $\alpha < 1$ and $c < 1$, $v(t, x)$ can get arbitrarily negative
+for large values of $x$. Hence we can fix an $R > 0$ such that
+%
+\begin{equation}
+    v(t, x) \leq \max_{[-R, R]} \phi \qquad \text{for } |x| > R.
+    \label{eq:3c-helper}
+\end{equation}
+%
+For this value of $R$, if we now apply the maximum principle to
+$\Gamma_T$, clearly with~\eqref{eq:3c-helper} we have
+%
+\begin{equation*}
+    \max_{\Gamma_T} v = \max_{[-R, R]} \phi
+    .
+\end{equation*}
 
 \vspace{5mm}
 
@@ -458,11 +504,33 @@ is trivially satisfied. Hence we only need to show that
 
 \textbf{Solution}
 
+In part (c) we proved that
+%
+\begin{equation*}
+    \max_{[0, T] \times [-R, R]} v \leq \sup_\mathbb{R} \phi
+    .
+\end{equation*}
+%
+Taking the limit $R \to \infty$, we obtain
+%
+\begin{equation*}
+    \sup_{[0, T] \times \mathbb{R}} v \leq \sup_\mathbb{R} \phi
+    .
+\end{equation*}
+
 \vspace{5mm}
 
 (e) Show that \eqref{eq:2-1} holds by letting $\delta_0$ approach zero.
 
 \textbf{Solution}
+
+Noting that $\lim\limits_{\delta_0 \to 0} v = u$, it follows that taking
+the limit $\delta_0 \to 0$ gives us
+%
+\begin{equation*}
+    \sup_{[0, T] \times \mathbb{R}} u = \sup_{\mathbb{R}} \phi
+    .
+\end{equation*}
 
 \vspace{5mm}
 
@@ -470,5 +538,30 @@ is trivially satisfied. Hence we only need to show that
 \eqref{eq:2-1}. Generalize the maximum principle to arbitrary $T > 0$.
 
 \textbf{Solution}
+
+We have already shown that~\eqref{eq:2-1} holds for $4 \alpha T < 1$, or
+$T < \frac{1}{4 \alpha}$. Now suppose $T \geq \frac{1}{4 \alpha}$. Then
+consider the intervals \[[0, \delta T], [\delta T, 2 \delta T], \ldots,
+[N \delta T, T],\] where \[\delta T = \frac{1}{5 \alpha}\] and $N$
+is such that \[T - N \delta T \leq \frac{1}{5 \alpha}.\]
+
+Then for each of the above intervals we can apply the results from parts
+(a) through (e) to obtain
+%
+\begin{equation*}
+    \sup_{[N \delta T, T] \times \mathbb{R}} u
+    \leq \cdots
+    \leq \sup_{[\delta T, 2 \delta T] \times \mathbb{R}} u
+    \leq \sup_{[0, \delta T] \times \mathbb{R}} u
+    = \sup_\mathbb{R} \phi
+    ,
+\end{equation*}
+%
+from which it follows that
+%
+\begin{equation*}
+    \sup_{[0, T] \times \mathbb{R}} u = \sup_{\mathbb{R}} \phi
+    .
+\end{equation*}
 
 \end{document}
