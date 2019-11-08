@@ -143,8 +143,26 @@ for all $B(x_0, r) \subseteq \Omega$.
 
 \vspace{5mm}
 
-(c) Let $\Phi(x) = \frac{1}{|x|^{d-2}}$. Then $\Delta \Phi(x)$ is not
-integrable on $B(0, 1)$.
+(c) Let $\Phi(x) = \frac{1}{|x|^{d-2}}$. Then the second derivative
+$\nabla^2 \Phi(x)$ is not integrable on $B(0, 1)$ in the sense that
+%
+\begin{equation*}
+    \int_{B(0, 1)} |\nabla^2 \Phi(x)|^2 \dif x = \infty.
+\end{equation*}
+%
+where $\nabla^2 \Phi$ is the matrix whose entries are given by
+%
+\begin{equation*}
+    \del[0]{\nabla^2 \Phi}_{ij} = \partial_{x_i} \partial_{x_j} \Phi(x)
+\end{equation*}
+%
+and
+%
+\begin{equation*}
+    \envert[0]{\nabla^2 \Phi}^2
+        = \sum_{i=1}^d \sum_{j=1}^d \del{\partial_{x_i} \partial_{x_j} \Phi(x)}^2
+    .
+\end{equation*}
 
 \textbf{Solution}
 
