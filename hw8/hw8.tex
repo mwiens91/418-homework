@@ -226,11 +226,92 @@ for all $B(x_0, r) \subseteq \Omega$.
 
 \textbf{Solution}
 
+Fix any $x_0 \in \mathbb{R}^d$. Let $\alpha r^{d} = |B
+(x_0, r)|$ for some constant $\alpha$. Define $\phi(r)$ such that
+%
+\begin{align*}
+    \phi(r)
+        &= \frac{1}{|\partial B (x_0, r)|} \int_{\partial B (x_0, r)} v(y) \dif \sigma_y \\
+        &= \frac{1}{d \alpha r^{d - 1}} \int_{\partial B (x_0, r)} v(y) \dif \sigma_y
+        .
+\end{align*}
+%
+Then, applying the steps from lecture, we arrive at
+%
+\begin{equation*}
+    \phi^\prime(r) = \int_{B (x_0, r)} \Delta v(y) \dif y
+        .
+\end{equation*}
+%
+Since $v$ is subharmonic, we have that
+%
+\begin{equation*}
+    0 \leq \int_{B (x_0, r)} \Delta v(y) \dif y = \phi^\prime(r)
+    .
+\end{equation*}
+%
+Thus, for any $r > 0$ we have
+%
+\begin{align*}
+    v(x_0)
+        &= \lim_{\gamma \to 0} \phi(\gamma) \\
+        &\leq \phi(r) \\
+        &= \frac{1}{|\partial B (x_0, r)|} \int_{\partial B (x_0, r)} v(y) \dif \sigma_y
+    ,
+\end{align*}
+%
+that is,
+%
+\begin{equation}
+    v(x_0) \leq \frac{1}{|\partial B (x_0, r)|} \int_{\partial B (x_0, r)} v(y) \dif \sigma_y
+    .
+    \label{eq:2-partial}
+\end{equation}
+%
+We then have that
+%
+\begin{align*}
+    \frac{1}{|B (x_0, r)|} \int_{B (x_0, r)} v(y) \dif y
+        &=\frac{1}{|B (x_0, r)|} \int_{B (x_0, r)} v(y) \dif y \\
+        &=\frac{1}{|B (x_0, r)|} \int_0^r \int_{\partial B (x_0, \tau)} v(y) \dif \tau_y \dif \tau \\
+        &\geq \frac{1}{|B (x_0, r)|} \int_0^r v(x_0) |\partial B (x_0, \tau)| \dif \tau \\
+        &= v(x_0)
+    .
+\end{align*}
+
 \vspace{5mm}
 
 (b) Prove that $\max\limits_{\bar{\Omega}} v = \max\limits_{\partial \Omega} v$.
 
 \textbf{Solution}
+
+Clearly we have that
+%
+\begin{equation*}
+    \max_{\bar{\Omega}} v \geq \max_{\partial \Omega} v
+    .
+\end{equation*}
+%
+Suppose that
+%
+\begin{equation*}
+    \max_{\bar{\Omega}} v > \max_{\partial \Omega} v
+    .
+\end{equation*}
+%
+that is, there exists $x_0 \in \Omega$ such that
+%
+\begin{equation*}
+    v(x_0) > \max_{\partial \Omega} v
+    .
+\end{equation*}
+%
+However, this contradicts~\eqref{eq:2-partial}. Hence we must have that
+%
+\begin{equation*}
+    \max_{\bar{\Omega}} v = \max_{\partial \Omega} v
+    .
+\end{equation*}
 
 \vspace{5mm}
 
@@ -344,5 +425,87 @@ and
 \end{equation*}
 
 \textbf{Solution}
+
+Consider any $i = 1, \ldots, d$ and $j = 1, \ldots, d$. Then we have
+%
+\begin{align*}
+    \dpd{}{x_i} \frac{1}{|x|^{d - 2}}
+        &= \dpd{}{x_i} \frac{1}{\del{x_i^2 + \sum_{\substack{k = 0 \\ k \neq i}}^d x_k^2}^{d/2 - 1}} \\
+        &= - \frac{(d - 2) x_i}{\del{x_i^2 + \sum_{\substack{k = 0 \\ k \neq i}}^d x_k^2}^{d/2}}
+    .
+\end{align*}
+%
+\textbf{Case 1: $j = i$}
+
+Let
+%
+\begin{equation*}
+    C_i = \sum_{\substack{k = 0 \\ k \neq i}}^d x_k^2
+    .
+\end{equation*}
+%
+Then we have
+%
+\begin{align*}
+    \dmd{}{2}{x_i}{}{x_j}{} \frac{1}{|x|^{d - 2}}
+        &= \dpd[2]{}{x_i} \frac{1}{|x|^{d - 2}} \\
+        &= - \dpd{}{x_i} \frac{(d - 2) x_i}{\del{x_i^2 + C}^{d/2}} \\
+        &= - \frac{(d - 2) x_i}{\del{x_i^2 + C}^{d/2}}
+            + \frac{d (d - 2) x_i^2}{\del{x_i^2+ C}^{d/2 + 1}} \\
+        &= - \frac{(d - 2) x_i}{|x|^{d/2}}
+            + \frac{d (d - 2) x_i^2}{|x|^{d/2 + 1}}
+    .
+\end{align*}
+%
+Thus, in this case,
+%
+\begin{align*}
+    (\partial_{x_i} \partial_{x_j} \Phi(x))^2
+        &= \del{- \frac{(d - 2) x_i}{|x|^{d/2}}
+            + \frac{d (d - 2) x_i^2}{|x|^{d/2 + 1}}}^2 \\
+        &= \frac{(d - 2)^2 (|x|^2 - d x_i^2)^2}{|x|^{d + 2}}
+        .
+\end{align*}
+%
+
+\textbf{Case 2: $j \neq i$}
+
+Then we have
+%
+\begin{align*}
+    \dmd{}{2}{x_i}{}{x_j}{} \frac{1}{|x|^{d - 2}}
+        &= - \dpd{}{x_i} \frac{(d - 2) x_i}{\del{x_i^2 + x_j^2 + \sum_{\substack{k = 0 \\ k \neq i \\ k \neq j}}^d x_k^2
+}^{d/2}} \\
+        &= \frac{d (d - 2) x_i x_j}{|x|^{d/2 + 1}}
+    .
+\end{align*}
+%
+Thus, in this case,
+%
+\begin{align*}
+    (\partial_{x_i} \partial_{x_j} \Phi(x))^2
+        &= \del{\frac{d (d - 2) x_i x_j}{|x|^{d/2 + 1}}}^2 \\
+        &= \frac{d^2 (d - 2)^2 x_i^2 x_j^2}{|x|^{d + 2}}
+        .
+\end{align*}
+
+Taking all of these results together we can see that,
+%
+\begin{align*}
+    &(\partial_{x_i}^2 \Phi(x))^2
+        + (\partial_{x_i} \partial_{x_j} \Phi(x))^2
+        + (\partial_{x_j} \partial_{x_i} \Phi(x))^2
+        + (\partial_{x_j}^2 \Phi(x))^2 \\
+    &= \frac{(d - 2)^2 (|x|^2 - d x_i^2)^2}{|x|^{d + 2}}
+        + 2 \frac{d^2 (d - 2)^2 x_i^2 x_j^2}{|x|^{d + 2}}
+        + \frac{(d - 2)^2 (|x|^2 - d x_j^2)^2}{|x|^{d + 2}} \\
+    &= \frac{(d - 2)^2}{|x|^{d + 2}} \del{
+            (|x|^2 - d x_i^2)^2
+            + 2 d^2 x_i^2 x_j^2
+            + (|x|^2 - d x_j^2)^2
+        } \\
+\end{align*}
+
+Unfinished problem. Can't seem to figure out a direction that works from here.
 
 \end{document}
