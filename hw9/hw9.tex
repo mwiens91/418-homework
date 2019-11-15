@@ -1,0 +1,116 @@
+% Set up the document
+\documentclass{article}
+
+% Page size
+\usepackage[
+    letterpaper,]{geometry}
+
+% Lines between paragraphs
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+
+% Math
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{commath}
+
+% Links
+\usepackage{hyperref}
+
+% Page numbers at top right
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\renewcommand\headrulewidth{0pt}
+
+\begin{document}
+
+\textbf{MATH 418 Homework 9} \\
+\textbf{Matt Wiens \#301294492} \\
+\textbf{2019-11-22}
+
+[12.9.4] Consider the Green's function for $\Delta$ in three space and a
+region $\Omega$. What can you say about the sign of G; i.e., is it
+always positive, always negative, or does the answer depend on the
+source point $x_0$?
+
+\textbf{Solution}
+
+see hint in textbook and handout
+
+\newpage
+
+[12.9.6] Starting with the fundamental solution for $\Delta$ in
+dimension $N = 2$:
+%
+\begin{equation}
+    v(x) = \frac{1}{2 \pi} \log |x - x_0|
+    ,
+\end{equation}
+%
+find the Green's function on the disc
+$D = \cbr{(x, y): x^2 + y^2 < a^2}$ and use it to show that the solution
+to the Dirichlet problem in D, the open disc of radius $a$:
+%
+\begin{equation*}
+    \begin{dcases}
+        \Delta u = 0 \quad \text{in } D, \\
+        u = g \quad \text{on } \partial D, \\
+        u \in C(\bar{D}),
+    \end{dcases}
+\end{equation*}
+%
+is given by
+%
+\begin{equation*}
+    u(x_0) = \frac{1}{2 \pi a}
+        \int_{|x| = a} \frac{a^2 - |x_0|^2}{|x - x_0|^2} g(x) \dif S_x
+        .
+\end{equation*}
+%
+This is known as the Poisson formula in 2D. Here $g$ is a continuous
+function on the boundary circle.
+
+\textbf{Solution}
+
+no hints
+
+\newpage
+
+[12.9.14] Derive an explicit formula for the solution of
+%
+\begin{equation*}
+    \Delta u + c u = f
+    ,
+\end{equation*}
+%
+in $\mathbb{R}^3$. First find the Fundamental solution $\Phi(x)$ where
+%
+\begin{equation*}
+    \Delta \Phi + c \Phi = \delta_0
+\end{equation*}
+%
+in the sense of distributions.
+
+\textbf{Solution}
+
+also a hint for this in the textbook
+
+\newpage
+
+[12.9.19] Consider the half ball
+%
+\begin{equation*}
+    B^+ = \cbr[1]{(x, y, z): x^2 + y^2 + z^2 < a, z > 0}
+    .
+\end{equation*}
+%
+Note that $\partial B^+$ consists of a semisphere and a disk lying in
+the $x y$-plane. Find the Green's function for the Laplacian on $B^+$.
+
+\textbf{Solution}
+
+hint for this in hw handout
+
+\end{document}
