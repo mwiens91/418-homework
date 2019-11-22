@@ -312,48 +312,104 @@ We need to find the Green's function
 %
 For any $\*{x_0} = (x_0, y_0, z_0)$, take
 %
-\begin{equation*}
-    \*{x_0^*} = \frac{R^2}{|\*{x_0}^2|} (x_0, y_0, -z_0)
+\begin{align*}
+    \*{x_0^{*}} &= (x_0, y_0, -z_0), \\
+    \*{x_0^{**}} &= \frac{R^2}{|\*{x_0}^2|} (x_0, y_0, z_0), \\
+    \*{x_0^{***}} &= \frac{R^2}{|\*{x_0}^2|} (x_0, y_0, -z_0)
     .
-\end{equation*}
+\end{align*}
 %
-Let
+The idea for a proposed $H$ is to combine both the $H$ functions for the
+upper half plane and the ball, while making sure terms cancel out
+properly on the boundary. This $H$ is as follows:
 %
 \begin{equation*}
-    H(\*{x}, \*{x_0}) = \frac{R}{|\*{x_0}|} \frac{1}{4 \pi |\*x - \*{x_0^*}|}
+    H(\*{x}, \*{x_0}) =
+        \frac{1}{4 \pi |\*x - \*{x_0^*}|}
+        + \frac{R}{|\*{x_0}|} \frac{1}{4 \pi |\*x - \*{x_0^{**}}|}
+        - \frac{R}{|\*{x_0}|} \frac{1}{4 \pi |\*x - \*{x_0^{***}}|}
     .
 \end{equation*}
 %
 Clearly $H$ is harmonic in $B^+$ and has no singularity: for all
-$\*{x_0} \in B^+$, $\*{x_0^*} \notin B^+$.
+$\*{x_0} \in B^+$, $\*{x_0^*}, \*{x_0^{**}}, \*{x_0^{***}} \notin B^+$.
 
-Let $\*x \in \partial B^+$. Define $\rho \coloneqq |\*x - \*{x_0}|$ and
-$\rho^* \coloneqq |\*x - \*{x_0^*}|$. For our candidate $H$ to work in
-our Green's function we need
-%
-\begin{equation*}
-    \frac{|\*{x_0}|^2}{R^2} (\rho^*)^2 = \rho^2
-    .
-\end{equation*}
-%
-Now,
+Now we will show that $H$ works on the boundary. In this part we will
+use the results from the upper half plane and the ball. Let $\*x \in
+\partial B^+$.
+
+\textbf{Case 1:} $z = 0$
+
+Then in this case we have that $\*{x^{***}} = \*{x^{**}}$ and thus
 %
 \begin{align*}
-    \frac{|\*{x_0}|^2}{R^2} (\rho^*)^2
-        &= \frac{|\*{x_0}|^2}{R^2} |\*x - \*{x_0^*}|^2 \\
-        &= \frac{|\*{x_0}|^2}{R^2} (|\*x|^2 - 2 \*x \cdot \*{x_0^*} + |\*{x_0^*}|^2) \\
-        &= \frac{|\*{x_0}|^2}{R^2} (R^2 - 2 \*x \cdot \*{x_0^*} + |\*{x_0^*}|^2) \\
-        &= \frac{|\*{x_0}|^2}{R^2} \del[1]{R^2 - 2 \frac{R^2}{|\*{x_0}|^2} \*x \cdot \*{x_0} + \frac{R^4}{|\*{x_0}|^4} |\*{x_0}|^2} \\
-        &= |\*{x_0}|^2 - 2 \*x \cdot \*{x_0} + R^2 \\
-        &= |\*{x_0}|^2 - 2 \*x \cdot \*{x_0} + |\*x|^2 \\
-        &= |\*x - \*{x_0}|^2 \\
-        &= \rho^2
+    H(\*{x}, \*{x_0}) &=
+        \frac{1}{4 \pi |\*x - \*{x_0^*}|}
+        + \frac{R}{|\*{x_0}|} \frac{1}{4 \pi |\*x - \*{x_0^{**}}|}
+        - \frac{R}{|\*{x_0}|} \frac{1}{4 \pi |\*x - \*{x_0^{***}}|} \\
+    &=
+        \frac{1}{4 \pi |\*x - \*{x_0^*}|}
+        + \frac{R}{|\*{x_0}|} \frac{1}{4 \pi |\*x - \*{x_0^{**}}|}
+        - \frac{R}{|\*{x_0}|} \frac{1}{4 \pi |\*x - \*{x_0^{**}}|} \\
+    &=
+        \frac{1}{4 \pi |\*x - \*{x_0^*}|}
+    .
 \end{align*}
 %
-This shows that the Green's function is given by
+From lectures, we know that
+%
+\begin{align*}
+    H(\*{x}, \*{x_0})
+        &= \frac{1}{4 \pi |\*x - \*{x_0^*}|} \\
+        &= \frac{1}{4 \pi |\*x - \*{x_0}|}
+    .
+\end{align*}
+
+\textbf{Case 2:} $z > 0$
+
+Then in this case we have that $\*{x^{*}} = \*{x^{***}}$ and
+$\frac{R}{|\*{x_0}|} = 1$. Thus
+%
+\begin{align*}
+    H(\*{x}, \*{x_0}) &=
+        \frac{1}{4 \pi |\*x - \*{x_0^*}|}
+        + \frac{R}{|\*{x_0}|} \frac{1}{4 \pi |\*x - \*{x_0^{**}}|}
+        - \frac{R}{|\*{x_0}|} \frac{1}{4 \pi |\*x - \*{x_0^{***}}|} \\
+    &=
+        \frac{1}{4 \pi |\*x - \*{x_0^*}|}
+        + \frac{R}{|\*{x_0}|} \frac{1}{4 \pi |\*x - \*{x_0^{**}}|}
+        - \frac{1}{4 \pi |\*x - \*{x_0^{*}}|} \\
+    &=
+        \frac{R}{|\*{x_0}|} \frac{1}{4 \pi |\*x - \*{x_0^{**}}|}
+    .
+\end{align*}
+%
+From lectures, we know that
+%
+\begin{align*}
+    H(\*{x}, \*{x_0})
+        &= \frac{R}{|\*{x_0}|} \frac{1}{4 \pi |\*x - \*{x_0^{**}}|} \\
+        &= \frac{1}{4 \pi |\*x - \*{x_0}|}
+    .
+\end{align*}
+
+To summarize, we have shown that
 %
 \begin{equation*}
-    G(\*x, \*{x_0}) = - \frac{1}{4 \pi |\*x - \*{x_0}|} + \frac{1}{4 \pi |\*x - \*{x_0^*}|}
+    \begin{dcases}
+        \Delta_x H(\*x, \*{x_0}) = 0 \quad \text{on } B^+, \\
+        H(\*x, \*{x_0}) = \frac{1}{4 \pi |\*x - \*{x_0}|} \quad \text{on } \partial B^+.
+    \end{dcases}
+\end{equation*}
+
+Our Green's function is therefore given by
+%
+\begin{equation*}
+    G(\*x, \*{x_0}) =
+        - \frac{1}{4 \pi |\*x - \*{x_0}|}
+        + \frac{1}{4 \pi |\*x - \*{x_0^*}|}
+        + \frac{R}{|\*{x_0}|} \frac{1}{4 \pi |\*x - \*{x_0^{**}}|}
+        - \frac{R}{|\*{x_0}|} \frac{1}{4 \pi |\*x - \*{x_0^{***}}|}
     .
 \end{equation*}
 
