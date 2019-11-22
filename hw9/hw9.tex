@@ -24,6 +24,9 @@
 \fancyhead[R]{\thepage}
 \renewcommand\headrulewidth{0pt}
 
+% Write vectors quickly
+\def\*#1{\mathbf{#1}}
+
 \begin{document}
 
 \textbf{MATH 418 Homework 9} \\
@@ -297,6 +300,61 @@ the $x y$-plane. Find the Green's function for the Laplacian on $B^+$.
 
 \textbf{Solution}
 
-hint for this in hw handout
+For notational convenience let $R = \sqrt{a}$, the radius of the half
+ball.
+
+We need to find the Green's function
+%
+\begin{equation*}
+    G(\*x, \*{x_0}) = - \frac{1}{4 \pi |\*x - \*{x_0}|} + H(\*x, \*{x_0})
+    .
+\end{equation*}
+%
+For any $\*{x_0} = (x_0, y_0, z_0)$, take
+%
+\begin{equation*}
+    \*{x_0^*} = \frac{R^2}{|\*{x_0}^2|} (x_0, y_0, -z_0)
+    .
+\end{equation*}
+%
+Let
+%
+\begin{equation*}
+    H(\*{x}, \*{x_0}) = \frac{R}{|\*{x_0}|} \frac{1}{4 \pi |\*x - \*{x_0^*}|}
+    .
+\end{equation*}
+%
+Clearly $H$ is harmonic in $B^+$ and has no singularity: for all
+$\*{x_0} \in B^+$, $\*{x_0^*} \notin B^+$.
+
+Let $\*x \in \partial B^+$. Define $\rho \coloneqq |\*x - \*{x_0}|$ and
+$\rho^* \coloneqq |\*x - \*{x_0^*}|$. For our candidate $H$ to work in
+our Green's function we need
+%
+\begin{equation*}
+    \frac{|\*{x_0}|^2}{R^2} (\rho^*)^2 = \rho^2
+    .
+\end{equation*}
+%
+Now,
+%
+\begin{align*}
+    \frac{|\*{x_0}|^2}{R^2} (\rho^*)^2
+        &= \frac{|\*{x_0}|^2}{R^2} |\*x - \*{x_0^*}|^2 \\
+        &= \frac{|\*{x_0}|^2}{R^2} (|\*x|^2 - 2 \*x \cdot \*{x_0^*} + |\*{x_0^*}|^2) \\
+        &= \frac{|\*{x_0}|^2}{R^2} (R^2 - 2 \*x \cdot \*{x_0^*} + |\*{x_0^*}|^2) \\
+        &= \frac{|\*{x_0}|^2}{R^2} (R^2 - 2 \frac{R^2}{|\*{x_0}|^2} \*x \cdot \*{x_0^*} + \frac{R^4}{|\*{x_0}^4|} |\*{x_0}|^2) \\
+        &= |\*{x_0}^2| - 2 \*x \cdot \*{x_0} + R^2 \\
+        &= |\*{x_0}^2| - 2 \*x \cdot \*{x_0} + |\*x|^2 \\
+        &= |\*x - \*{x_0}|^2 \\
+        &= \rho^2
+\end{align*}
+%
+This shows that the Green's function is given by
+%
+\begin{equation*}
+    G(\*x, \*{x_0}) = - \frac{1}{4 \pi |\*x - \*{x_0}|} + \frac{1}{4 \pi |\*x - \*{x_0^*}|}
+    .
+\end{equation*}
 
 \end{document}
