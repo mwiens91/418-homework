@@ -37,7 +37,55 @@ source point $x_0$?
 
 \textbf{Solution}
 
-see hint in textbook and handout
+Recall that in three dimensions, Green's function is given by
+%
+\begin{align*}
+    G(x, x_0)
+        &= \Phi(x - x_0) + H(x, x_0) \\
+        &= - \frac{1}{4 \pi} \frac{1}{\envert{x - x_0}} + H(x, x_0)
+        .
+\end{align*}
+%
+In the textbook chapter this problem comes from $\Omega$ is taken to be
+a domain, and thus is open. Hence for any $x_0$ there exists $B(x_0,
+\epsilon) \subseteq \Omega$ for some $\epsilon > 0$. Applying the
+maximum principle to $G(x, x_0)$ on $\Omega \setminus B(x_0, \epsilon)$,
+we have that $G$ achieves its maximum (in $x$) on either $\partial
+\Omega$ or $\partial B(x_0, \epsilon)$. From lectures, we know that
+%
+\begin{equation*}
+    G(x, x_0) = 0 \qquad \text{on } \partial \Omega
+    .
+\end{equation*}
+%
+Note that
+%
+\begin{equation*}
+    \lim_{x \to x_0} G(x, x_0) = - \infty
+    .
+\end{equation*}
+%
+(This is because
+%
+\begin{equation*}
+    \lim_{x \to x_0} \Phi(x, x_0) = - \infty
+\end{equation*}
+%
+and $H$ is bounded in $\Omega$.)
+
+By taking $\epsilon$ sufficiently small we can make the values $G(x,
+x_0)$ on $\partial B(x_0, \epsilon)$ arbitrarily negative.
+
+Therefore $G$ obtains its maximum in $x$ on $\partial \Omega$, whose
+value is $0$. If $G$ also obtains this value in $\Omega$ then $G$ must
+be a constant---but $G$ is by definition not constant. Thus we have that
+%
+\begin{equation*}
+    G(x, x_0) < 0 \qquad \text{on } \Omega
+    .
+\end{equation*}
+%
+This does not depend on the source point $x_0$.
 
 \newpage
 
@@ -53,13 +101,14 @@ find the Green's function on the disc
 $D = \cbr{(x, y): x^2 + y^2 < a^2}$ and use it to show that the solution
 to the Dirichlet problem in D, the open disc of radius $a$:
 %
-\begin{equation*}
+\begin{equation}
     \begin{dcases}
         \Delta u = 0 \quad \text{in } D, \\
         u = g \quad \text{on } \partial D, \\
         u \in C(\bar{D}),
     \end{dcases}
-\end{equation*}
+    \label{eq:2-ueq}
+\end{equation}
 %
 is given by
 %
@@ -74,7 +123,165 @@ function on the boundary circle.
 
 \textbf{Solution}
 
-no hints
+Here we need to find a function $H(x, x_0)$ such that
+%
+\begin{equation}
+    \begin{dcases}
+        \Delta_x H(x, x_0) = 0 \quad \text{on } D, \\
+        H(x, x_0) = -\frac{1}{2 \pi} \log \envert{x - x_0} \quad \text{on } \partial D.
+    \end{dcases}
+    \label{eq:2-h}
+\end{equation}
+%
+Let $x \in \partial D$. Then $|x| = a$ and we have that
+%
+\begin{align*}
+    |x - x_0|^2
+        &= |x|^2 - 2 x \cdot x_0 + |x_0|^2 \\
+        &= a^2 - 2 x \cdot x_0 + |x_0|^2
+        .
+\end{align*}
+%
+If $x_0 = 0$, then $|x - x_0| = a$.
+
+Suppose $x_0 \neq 0$. Then
+%
+\begin{align*}
+    |x - x_0|^2
+        &= a^2 - 2 x \cdot x_0 + |x_0|^2 \\
+        &= \frac{|x_0|^2}{a^2} \del{\frac{a^4}{|x_0|^2} - 2 a^2 \frac{x \cdot x_0}{|x_0|^2} + a^2} \\
+        &= \frac{|x_0|^2}{a^2} \del{a^2 - 2 a^2 \frac{x \cdot x_0}{|x_0|^2} + \frac{a^4 |x_0|^2}{|x_0|^4}} \\
+        &= \frac{|x_0|^2}{a^2} \del{|x|^2 - 2 a^2 \frac{x \cdot x_0}{|x_0|^2} + \frac{a^4 |x_0|^2}{|x_0|^4}} \\
+        &= \frac{|x_0|^2}{a^2} \envert[3]{x - \frac{a^2}{|x_0|^2} x_0}^2
+\end{align*}
+%
+Letting
+%
+\begin{equation*}
+    x_0^* = \frac{a^2}{|x_0|^2} x_0
+    ,
+\end{equation*}
+%
+we thus have that
+%
+\begin{equation*}
+    |x - x_0| = \frac{|x_0|}{a} |x - x_0^*|
+    .
+\end{equation*}
+
+Let us take
+%
+\begin{equation*}
+    H(x, x_0) =
+        \begin{dcases}
+            - \frac{1}{2 \pi} \log a, &x_0 = 0 \\
+            - \frac{1}{2 \pi} \log \del{\frac{|x_0|}{a} |x - x_0^*|}, &x_0 \neq 0.
+        \end{dcases}
+\end{equation*}
+%
+Since $x_0^* \notin D$, by the properties of the fundamental solution we
+have that $H$ is harmonic on D. We have also shown that on $\partial D$,
+%
+\begin{equation*}
+    H(x, x_0) = -\frac{1}{2 \pi} \log \envert{x - x_0}
+    .
+\end{equation*}
+%
+Therefore, $H$ satisfies \eqref{eq:2-h}.
+
+The corresponding Green's function is thus
+%
+\begin{equation*}
+    G(x, x_0) =
+        \begin{dcases}
+            \frac{1}{2 \pi} \log |x| - \frac{1}{2 \pi} \log a, &x_0 = 0 \\
+            \frac{1}{2 \pi} \log |x - x_0| - \frac{1}{2 \pi} \log \del{\frac{|x_0|}{a} |x - x_0^*|}, &x_0 \neq 0.
+        \end{dcases}
+\end{equation*}
+
+From lectures, we have that the solution to \eqref{eq:2-ueq} is given by
+%
+\begin{equation*}
+    u(x_0) = \int_{\partial D} g(x) \pd{}{n} G(x, x_0) \dif S_x
+    .
+\end{equation*}
+%
+Since the Green's function depends on whether $x_0 = 0$, let us treat
+each case separately. Note that for each of these cases, the outer
+normal vector to the disc $n(x)$ is given by
+%
+\begin{equation*}
+    n(x) = \frac{x}{|x|}
+    .
+\end{equation*}
+
+\textbf{Case 1:} $x_0 = 0$
+
+Here we have that
+%
+\begin{align*}
+    \dpd{}{n} G
+        &= \frac{x}{|x|} \cdot \nabla_x G(x, x_0) \\
+        &= \frac{x}{|x|} \cdot \nabla_x \del{\frac{1}{2 \pi} \log |x| - \frac{1}{2 \pi} \log a} \\
+        &= \frac{x}{|x|} \cdot \frac{1}{2 \pi} \frac{1}{|x|} \frac{x}{|x|} \\
+        &= \frac{1}{2 \pi |x|}
+        .
+\end{align*}
+%
+Recalling that on $\partial D$, $|x| = a$ and that $x_0 = 0$, we have that
+%
+\begin{align*}
+    u(x_0)
+        &= \int_{\partial D} g(x) \pd{}{n} G(x, x_0) \dif S_x \\
+        &= \int_{\partial D} g(x) \frac{1}{2 \pi |x|} \dif S_x \\
+        &= \frac{1}{2 \pi a} \int_{\partial D} g(x) \dif S_x \\
+        &= \frac{1}{2 \pi a} \int_{|x| = a} g(x) \dif S_x \\
+        &= \frac{1}{2 \pi a} \int_{|x| = a} \frac{a^2}{|x|^2} g(x) \dif S_x \\
+        &= \frac{1}{2 \pi a} \int_{|x| = a} \frac{a^2 - |x_0|^2}{|x - x_0|^2} g(x) \dif S_x
+        .
+\end{align*}
+
+\textbf{Case 2:} $x_0 \neq 0$
+
+Here we have that
+%
+\begin{align*}
+    \dpd{}{n} G
+        &= \frac{x}{|x|} \cdot \nabla_x G(x, x_0) \\
+        &= \frac{x}{|x|} \cdot \nabla_x \del{\frac{1}{2 \pi} \log |x - x_0| - \frac{1}{2 \pi} \log \del{\frac{|x_0|}{a} |x - x_0^*|}} \\
+        &= \frac{x}{|x|} \cdot \frac{1}{2 \pi} \del{\frac{x - x_0}{|x - x_0|^2} - \frac{x - x_0^*}{|x - x_0^*|^2}} \\
+        &= \frac{1}{2 \pi |x|} \del{\frac{|x|^2 - x \cdot x_0}{|x - x_0|^2} - \frac{|x|^2 - x \cdot x_0^*}{|x - x_0^*|^2}}
+        .
+\end{align*}
+%
+On $\partial D$, where $|x| = a$ and $|x - x_0| = \frac{|x_0|}{a} |x - x_0^*|$, we have that
+%
+\begin{align*}
+    \dpd{}{n} G
+        &= \frac{1}{2 \pi a} \del{\frac{a^2 - x \cdot x_0}{|x - x_0|^2} - \frac{|x_0|^2}{a^2} \frac{a^2 - x \cdot x_0^*}{|x - x_0|^2}} \\
+        &= \frac{1}{2 \pi a} \del{\frac{a^2 - x \cdot x_0}{|x - x_0|^2} - \frac{|x_0|^2}{a^2} \frac{a^2 - x \cdot \del{\frac{a^2}{x_0^2} x_0}}{|x - x_0|^2}} \\
+        &= \frac{1}{2 \pi a} \del{\frac{a^2 - x \cdot x_0}{|x - x_0|^2} - \frac{|x_0|^2 - x \cdot x_0}{|x - x_0|^2}} \\
+        &= \frac{1}{2 \pi a |x - x_0|^2} \del{a^2 - |x_0|^2} \\
+        .
+\end{align*}
+%
+Hence we have
+%
+\begin{align*}
+    u(x_0)
+        &= \int_{\partial D} g(x) \pd{}{n} G(x, x_0) \dif S_x \\
+        &= \int_{\partial D} g(x) \del{\frac{1}{2 \pi a |x - x_0|^2} \del{a^2 - |x_0|^2}} \dif S_x \\
+        &= \frac{1}{2 \pi a} \int_{\partial D} g(x) \frac{a^2 - |x_0|^2}{|x - x_0|^2} \dif S_x \\
+        &= \frac{1}{2 \pi a} \int_{|x| = a} g(x) \frac{a^2 - |x_0|^2}{|x - x_0|^2} \dif S_x
+        .
+\end{align*}
+%
+In both cases we obtain the same solution. Hence the solution to \eqref{eq:2-ueq} is given by
+%
+\begin{equation*}
+    u(x_0) = \frac{1}{2 \pi a} \int_{|x| = a} g(x) \frac{a^2 - |x_0|^2}{|x - x_0|^2} \dif S_x
+    .
+\end{equation*}
 
 \newpage
 
